@@ -109,16 +109,16 @@ function TikTokToolkit() {
       let res: { result: string };
       switch (activeTab) {
         case "hooks":
-          res = await generateHooks({ data: { topic, tone, niche } });
+          res = await generateHooks({ topic, tone, niche });
           break;
         case "script":
-          res = await generateScript({ data: { topic, tone, niche, duration } });
+          res = await generateScript({ topic, tone, niche, duration });
           break;
         case "hashtags":
-          res = await generateHashtags({ data: { topic, tone, niche } });
+          res = await generateHashtags({ topic, tone, niche });
           break;
         case "captions":
-          res = await generateCaptions({ data: { topic, tone, niche } });
+          res = await generateCaptions({ topic, tone, niche });
           break;
         default:
           throw new Error("Unknown tool");
