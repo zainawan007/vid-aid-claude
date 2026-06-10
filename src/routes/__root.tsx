@@ -82,10 +82,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "AI-powered tools for TikTok creators — hooks, scripts, hashtags, and captions." },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "TikTok Creator Toolkit" },
-      { property: "og:description", content: "AI-powered tools for TikTok creators." },
+      { property: "og:description", content: "AI-powered tools for TikTok creators — hooks, scripts, hashtags, and captions." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "TikTok Creator Toolkit" },
+      { name: "twitter:description", content: "AI-powered tools for TikTok creators — hooks, scripts, hashtags, and captions." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/09cf918e-0848-4d28-b304-4144be8cd219/id-preview-98bc9499--b6d4cd1c-66c0-42b2-b822-bcc8ed31dfb1.lovable.app-1781078707606.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/09cf918e-0848-4d28-b304-4144be8cd219/id-preview-98bc9499--b6d4cd1c-66c0-42b2-b822-bcc8ed31dfb1.lovable.app-1781078707606.png" },
     ],
     links: [
       {
