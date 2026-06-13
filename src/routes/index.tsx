@@ -34,6 +34,7 @@ import {
   Music,
 } from "lucide-react";
 import { toast } from "sonner";
+import { AdBanner } from "@/components/AdBanner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
