@@ -177,6 +177,7 @@ function TikTokToolkit() {
 
       {/* Main Content */}
       <main className="mx-auto max-w-3xl px-4 py-8 sm:py-12">
+        <AdBanner />
         <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as ToolId)}>
           {/* Tool Cards */}
           <TabsList className="mb-6 grid h-auto w-full grid-cols-2 gap-2 bg-transparent p-0 sm:grid-cols-4">
