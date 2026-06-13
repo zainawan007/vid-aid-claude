@@ -350,6 +350,7 @@ function TikTokToolkit() {
             </div>
           )}
         </Tabs>
+        <AdBanner />
       </main>
 
       {/* Footer */}
