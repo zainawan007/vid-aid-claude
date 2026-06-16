@@ -370,6 +370,38 @@ function TikTokToolkit() {
             </div>
           )}
         </Tabs>
+
+        {/* Dedicated tool landing pages */}
+        <section className="mt-10">
+          <h2 className="mb-4 text-xl font-bold text-foreground">Explore each tool</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {TOOLS.map((tool) => {
+              const Icon = tool.icon;
+              const paths: Record<ToolId, string> = {
+                hooks: "/tools/hook-generator",
+                script: "/tools/script-writer",
+                hashtags: "/tools/hashtag-pack",
+                captions: "/tools/caption-crafter",
+              };
+              return (
+                <Link
+                  key={tool.id}
+                  to={paths[tool.id]}
+                  className="flex items-center gap-3 rounded-xl border border-border/50 bg-surface-raised p-4 transition-all hover:border-tiktok-pink/40 hover:bg-surface-elevated"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-tiktok-cyan/20 to-tiktok-pink/20">
+                    <Icon className="h-5 w-5 text-tiktok-pink" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-foreground">{tool.label}</div>
+                    <div className="text-xs text-muted-foreground">{tool.description}</div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
         <AdBanner />
       </main>
 
