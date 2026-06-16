@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
+import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
+import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
+import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -22,31 +26,86 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsScriptWriterRoute = ToolsScriptWriterRouteImport.update({
+  id: '/tools/script-writer',
+  path: '/tools/script-writer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsHookGeneratorRoute = ToolsHookGeneratorRouteImport.update({
+  id: '/tools/hook-generator',
+  path: '/tools/hook-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsHashtagPackRoute = ToolsHashtagPackRouteImport.update({
+  id: '/tools/hashtag-pack',
+  path: '/tools/hashtag-pack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsCaptionCrafterRoute = ToolsCaptionCrafterRouteImport.update({
+  id: '/tools/caption-crafter',
+  path: '/tools/caption-crafter',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/script-writer': typeof ToolsScriptWriterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/script-writer': typeof ToolsScriptWriterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/script-writer': typeof ToolsScriptWriterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/tools/caption-crafter'
+    | '/tools/hashtag-pack'
+    | '/tools/hook-generator'
+    | '/tools/script-writer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/sitemap.xml'
+    | '/tools/caption-crafter'
+    | '/tools/hashtag-pack'
+    | '/tools/hook-generator'
+    | '/tools/script-writer'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/tools/caption-crafter'
+    | '/tools/hashtag-pack'
+    | '/tools/hook-generator'
+    | '/tools/script-writer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
+  ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
+  ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
+  ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +124,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/script-writer': {
+      id: '/tools/script-writer'
+      path: '/tools/script-writer'
+      fullPath: '/tools/script-writer'
+      preLoaderRoute: typeof ToolsScriptWriterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/hook-generator': {
+      id: '/tools/hook-generator'
+      path: '/tools/hook-generator'
+      fullPath: '/tools/hook-generator'
+      preLoaderRoute: typeof ToolsHookGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/hashtag-pack': {
+      id: '/tools/hashtag-pack'
+      path: '/tools/hashtag-pack'
+      fullPath: '/tools/hashtag-pack'
+      preLoaderRoute: typeof ToolsHashtagPackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/caption-crafter': {
+      id: '/tools/caption-crafter'
+      path: '/tools/caption-crafter'
+      fullPath: '/tools/caption-crafter'
+      preLoaderRoute: typeof ToolsCaptionCrafterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
+  ToolsHashtagPackRoute: ToolsHashtagPackRoute,
+  ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
+  ToolsScriptWriterRoute: ToolsScriptWriterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
