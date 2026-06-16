@@ -39,10 +39,30 @@ import { AdBanner } from "@/components/AdBanner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TikTok Creator Toolkit" },
-      { name: "description", content: "AI-powered tools for TikTok creators." },
-      { property: "og:title", content: "TikTok Creator Toolkit" },
-      { property: "og:description", content: "AI-powered tools for TikTok creators." },
+      { title: "TikTok Creator Toolkit — AI Hooks, Scripts, Hashtags & Captions" },
+      { name: "description", content: "Free AI-powered TikTok toolkit: generate scroll-stopping hooks, timestamped scripts, hashtag packs, and captions in seconds." },
+      { property: "og:title", content: "TikTok Creator Toolkit — AI Hooks, Scripts, Hashtags & Captions" },
+      { property: "og:description", content: "Free AI-powered TikTok toolkit: generate scroll-stopping hooks, timestamped scripts, hashtag packs, and captions in seconds." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://vid-aid-claude.lovable.app/" },
+      { name: "twitter:title", content: "TikTok Creator Toolkit" },
+      { name: "twitter:description", content: "AI hooks, scripts, hashtags, and captions for TikTok creators." },
+    ],
+    links: [{ rel: "canonical", href: "https://vid-aid-claude.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "TikTok Creator Toolkit",
+          url: "https://vid-aid-claude.lovable.app/",
+          applicationCategory: "MultimediaApplication",
+          operatingSystem: "Any",
+          description: "AI-powered tools for TikTok creators — hooks, scripts, hashtags, and captions.",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        }),
+      },
     ],
   }),
   component: TikTokToolkit,
