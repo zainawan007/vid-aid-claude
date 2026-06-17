@@ -11,10 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
+import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
+import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content-calendar'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
+import { Route as ToolsBioOptimizerRouteImport } from './routes/tools.bio-optimizer'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -24,6 +28,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsVideoIdeasRoute = ToolsVideoIdeasRouteImport.update({
+  id: '/tools/video-ideas',
+  path: '/tools/video-ideas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsTrendAnglesRoute = ToolsTrendAnglesRouteImport.update({
+  id: '/tools/trend-angles',
+  path: '/tools/trend-angles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsScriptWriterRoute = ToolsScriptWriterRouteImport.update({
@@ -41,71 +55,109 @@ const ToolsHashtagPackRoute = ToolsHashtagPackRouteImport.update({
   path: '/tools/hashtag-pack',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsContentCalendarRoute = ToolsContentCalendarRouteImport.update({
+  id: '/tools/content-calendar',
+  path: '/tools/content-calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsCaptionCrafterRoute = ToolsCaptionCrafterRouteImport.update({
   id: '/tools/caption-crafter',
   path: '/tools/caption-crafter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsBioOptimizerRoute = ToolsBioOptimizerRouteImport.update({
+  id: '/tools/bio-optimizer',
+  path: '/tools/bio-optimizer',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/sitemap.xml'
+    | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/content-calendar'
     | '/tools/hashtag-pack'
     | '/tools/hook-generator'
     | '/tools/script-writer'
+    | '/tools/trend-angles'
+    | '/tools/video-ideas'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/sitemap.xml'
+    | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/content-calendar'
     | '/tools/hashtag-pack'
     | '/tools/hook-generator'
     | '/tools/script-writer'
+    | '/tools/trend-angles'
+    | '/tools/video-ideas'
   id:
     | '__root__'
     | '/'
     | '/sitemap.xml'
+    | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/content-calendar'
     | '/tools/hashtag-pack'
     | '/tools/hook-generator'
     | '/tools/script-writer'
+    | '/tools/trend-angles'
+    | '/tools/video-ideas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ToolsBioOptimizerRoute: typeof ToolsBioOptimizerRoute
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
+  ToolsContentCalendarRoute: typeof ToolsContentCalendarRoute
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
+  ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
+  ToolsVideoIdeasRoute: typeof ToolsVideoIdeasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -122,6 +174,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/video-ideas': {
+      id: '/tools/video-ideas'
+      path: '/tools/video-ideas'
+      fullPath: '/tools/video-ideas'
+      preLoaderRoute: typeof ToolsVideoIdeasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/trend-angles': {
+      id: '/tools/trend-angles'
+      path: '/tools/trend-angles'
+      fullPath: '/tools/trend-angles'
+      preLoaderRoute: typeof ToolsTrendAnglesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/script-writer': {
@@ -145,11 +211,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsHashtagPackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/content-calendar': {
+      id: '/tools/content-calendar'
+      path: '/tools/content-calendar'
+      fullPath: '/tools/content-calendar'
+      preLoaderRoute: typeof ToolsContentCalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/caption-crafter': {
       id: '/tools/caption-crafter'
       path: '/tools/caption-crafter'
       fullPath: '/tools/caption-crafter'
       preLoaderRoute: typeof ToolsCaptionCrafterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/bio-optimizer': {
+      id: '/tools/bio-optimizer'
+      path: '/tools/bio-optimizer'
+      fullPath: '/tools/bio-optimizer'
+      preLoaderRoute: typeof ToolsBioOptimizerRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -158,10 +238,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ToolsBioOptimizerRoute: ToolsBioOptimizerRoute,
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
+  ToolsContentCalendarRoute: ToolsContentCalendarRoute,
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
+  ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
+  ToolsVideoIdeasRoute: ToolsVideoIdeasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
