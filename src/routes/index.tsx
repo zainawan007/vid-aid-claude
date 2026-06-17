@@ -35,6 +35,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
+import { TOOLS as ALL_TOOLS } from "@/components/ToolWorkspace";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -373,20 +374,14 @@ function TikTokToolkit() {
 
         {/* Dedicated tool landing pages */}
         <section className="mt-10">
-          <h2 className="mb-4 text-xl font-bold text-foreground">Explore each tool</h2>
+          <h2 className="mb-4 text-xl font-bold text-foreground">Explore every tool</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            {TOOLS.map((tool) => {
+            {ALL_TOOLS.map((tool) => {
               const Icon = tool.icon;
-              const paths: Record<ToolId, string> = {
-                hooks: "/tools/hook-generator",
-                script: "/tools/script-writer",
-                hashtags: "/tools/hashtag-pack",
-                captions: "/tools/caption-crafter",
-              };
               return (
                 <Link
                   key={tool.id}
-                  to={paths[tool.id]}
+                  to={tool.path}
                   className="flex items-center gap-3 rounded-xl border border-border/50 bg-surface-raised p-4 transition-all hover:border-tiktok-pink/40 hover:bg-surface-elevated"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-tiktok-cyan/20 to-tiktok-pink/20">
