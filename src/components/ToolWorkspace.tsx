@@ -96,6 +96,18 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
         case "captions":
           res = await generateCaptions({ data: { topic, tone, niche } });
           break;
+        case "ideas":
+          res = await generateIdeas({ data: { topic, tone, niche } });
+          break;
+        case "calendar":
+          res = await generateCalendar({ data: { topic, tone, niche } });
+          break;
+        case "trends":
+          res = await generateTrends({ data: { topic, tone, niche } });
+          break;
+        case "bio":
+          res = await generateBio({ data: { topic, tone, niche } });
+          break;
       }
       setResult(res!.result);
     } catch (e) {
