@@ -165,7 +165,7 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
         <AdBanner />
 
         {/* Tool nav */}
-        <nav className="mb-6 grid h-auto w-full grid-cols-2 gap-2 sm:grid-cols-4">
+        <nav className="mb-6 grid h-auto w-full grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-4">
           {TOOLS.map((tool) => {
             const Icon = tool.icon;
             const isActive = tool.id === toolId;
