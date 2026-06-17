@@ -15,6 +15,10 @@ import {
   generateScript,
   generateHashtags,
   generateCaptions,
+  generateIdeas,
+  generateCalendar,
+  generateTrends,
+  generateBio,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
@@ -26,39 +30,23 @@ import {
   Loader2,
   Sparkles,
   Music,
+  Lightbulb,
+  CalendarDays,
+  TrendingUp,
+  UserCircle,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
 
 export const TOOLS = [
-  {
-    id: "hooks",
-    label: "Hook Generator",
-    icon: Zap,
-    description: "Scroll-stopping opening lines",
-    path: "/tools/hook-generator",
-  },
-  {
-    id: "script",
-    label: "Script Writer",
-    icon: FileText,
-    description: "Full timestamped scripts",
-    path: "/tools/script-writer",
-  },
-  {
-    id: "hashtags",
-    label: "Hashtag Pack",
-    icon: Hash,
-    description: "Hashtags + trending sounds",
-    path: "/tools/hashtag-pack",
-  },
-  {
-    id: "captions",
-    label: "Caption Crafter",
-    icon: MessageSquareQuote,
-    description: "3 caption variations",
-    path: "/tools/caption-crafter",
-  },
+  { id: "hooks", label: "Hook Generator", icon: Zap, description: "Scroll-stopping opening lines", path: "/tools/hook-generator" },
+  { id: "script", label: "Script Writer", icon: FileText, description: "Full timestamped scripts", path: "/tools/script-writer" },
+  { id: "hashtags", label: "Hashtag Pack", icon: Hash, description: "Hashtags + trending sounds", path: "/tools/hashtag-pack" },
+  { id: "captions", label: "Caption Crafter", icon: MessageSquareQuote, description: "3 caption variations", path: "/tools/caption-crafter" },
+  { id: "ideas", label: "Video Ideas", icon: Lightbulb, description: "20 ready-to-film ideas", path: "/tools/video-ideas" },
+  { id: "calendar", label: "Content Calendar", icon: CalendarDays, description: "7-day posting plan", path: "/tools/content-calendar" },
+  { id: "trends", label: "Trend Angles", icon: TrendingUp, description: "Ride viral formats", path: "/tools/trend-angles" },
+  { id: "bio", label: "Bio Optimizer", icon: UserCircle, description: "3 profile bios", path: "/tools/bio-optimizer" },
 ] as const;
 
 const TONES = ["Hype", "Funny", "Educational", "Aesthetic", "Storytelling"] as const;
