@@ -72,3 +72,55 @@ export const generateCaptions = createServerFn({ method: "POST" })
     });
     return { result: text };
   });
+
+export const generateIdeas = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok content strategist. Generate 20 distinct video ideas grouped into 4 proven formats: LISTICLE (e.g. '5 things...'), TUTORIAL/HOW-TO, STORYTIME/POV, and HOT TAKE/CONTROVERSY. Each idea is 1 punchy sentence the creator could film today. Number them 1-20 and label the format for each.",
+      prompt: `Topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nGive me 20 ready-to-film TikTok video ideas across 4 formats.`,
+    });
+    return { result: text };
+  });
+
+export const generateCalendar = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok content planner. Produce a 7-day posting calendar (Mon-Sun). For each day include: Day, Best post time (EST), Format (e.g. Listicle, Tutorial, POV, Trend, Q&A, Behind-the-scenes, CTA), Hook line, and 1-sentence content brief. Mix evergreen and trend-driven content. Keep it scannable.",
+      prompt: `Topic/Brand: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nBuild a 7-day TikTok content calendar.`,
+    });
+    return { result: text };
+  });
+
+export const generateTrends = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok trend strategist. Given a topic and niche, generate 5 angle ideas to ride evergreen TikTok trend formats (e.g. 'tell me you're X without telling me', 'POV:', 'green screen reaction', 'day in the life', 'before vs after', 'CapCut template remix'). For each: TREND FORMAT, NICHE ANGLE, HOOK, and WHY IT WORKS. Number 1-5.",
+      prompt: `Topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nGive 5 trend-ride angles.`,
+    });
+    return { result: text };
+  });
+
+export const generateBio = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok profile optimizer. Write 3 bio variations (max 80 characters each, TikTok's limit). Each bio: line 1 = identity/promise, line 2 = social proof or hook, line 3 = CTA with emoji arrow to link. Variations: AUTHORITY (expert), RELATABLE (friend-next-door), CURIOSITY (mystery/intrigue). Label each clearly and show character count.",
+      prompt: `Creator topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nWrite 3 optimized TikTok bios.`,
+    });
+    return { result: text };
+  });
