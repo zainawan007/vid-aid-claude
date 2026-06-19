@@ -186,6 +186,26 @@ export const generateThumbnailDesign = createServerFn({ method: "POST" })
       system:
         "You are a senior TikTok/YouTube thumbnail designer. Output a complete, production-ready thumbnail design spec a creator can hand to a designer or recreate in Canva. Use this exact structure with clear section headers:\n\n1) CONCEPT — 1-sentence visual idea + the emotion it triggers.\n2) LAYOUT — composition rule (rule of thirds / center subject / split-screen / before-after), focal point placement, and visual hierarchy order.\n3) COLOR PALETTE — 4 hex codes with role labels (background, primary, accent, text). High-contrast, scroll-stopping. Note dominant temperature (warm/cool).\n4) TYPOGRAPHY — exact font family suggestions (1 display + 1 supporting, name real free fonts e.g. Anton, Bebas Neue, Inter, Montserrat), weight, approx px size, letter-spacing, and text effect (stroke px+color, drop shadow, highlight bar).\n5) TEXT PLACEMENT — exact overlay copy (2-5 words, ALL CAPS friendly), position (top-left/center/bottom-right etc.), and safe-zone notes so it isn't cropped by the TikTok UI (avoid bottom 20% and right 15%).\n6) SUBJECT & POSE — who/what is in frame, facial expression, gaze direction, body language.\n7) PROPS & BACKGROUND — 2-4 specific props, background type (solid, gradient, location, blurred), lighting style (ring light, golden hour, neon).\n8) EFFECTS & DETAILS — arrows, circles, emoji overlays, glow, grain, sticker callouts (if any).\n9) WHY IT WORKS — 2-3 bullets tying the design to curiosity, contrast, and the niche.\n\nBe specific and opinionated. No fluff. Keep total under ~450 words.",
       prompt: `Video topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nProduce a full thumbnail design spec.`,
+  });
+
+const ImagePromptInput = z.object({
+  spec: z.string().min(10).max(8000),
+  topic: z.string().min(1).max(500),
+  niche: z.string().min(1).max(200),
+});
+
+export const generateImagePrompt = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => ImagePromptInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You convert a thumbnail design spec into ready-to-paste prompts for popular AI image generators. Output EXACTLY these 4 labeled sections, each as a single dense paragraph the user can copy verbatim — no preamble, no bullets, no markdown headers other than the labels shown:\n\n=== MIDJOURNEY ===\n<one paragraph prompt, comma-separated descriptors, ends with --ar 9:16 --style raw --v 6>\n\n=== DALL·E / ChatGPT ===\n<one natural-language paragraph, 9:16 vertical, explicit about subject pose, lighting, color hex codes, on-image text in quotes with placement, font style>\n\n=== STABLE DIFFUSION / FLUX ===\n<positive prompt as comma-separated tags, then a new line starting with `Negative prompt:` listing: blurry, low contrast, extra fingers, distorted text, watermark, cluttered>\n\n=== NANO BANANA / GEMINI ===\n<one paragraph, plainspoken, explicit 9:16 vertical thumbnail, restate exact on-image text in quotes with placement and font, palette hex codes, safe-zone reminder>\n\nRules: bake in the exact hex colors, the exact on-image text (in quotes), font style, subject, pose, props, lighting, and 9:16 vertical thumbnail framing from the spec. If the spec includes text overlay, every prompt must instruct the model to render that text legibly with the specified placement. Keep each prompt under 120 words.",
+      prompt: `Video topic: ${data.topic}\nNiche: ${data.niche}\n\nDesign spec to convert:\n\n${data.spec}`,
     });
+    return { result: text };
+  });
+
     return { result: text };
   });
