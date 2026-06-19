@@ -174,6 +174,42 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
     }
   };
 
+  const handleGenerateImagePrompt = async () => {
+    if (!result) return;
+    setImageLoading(true);
+    setImagePrompt("");
+    setImageError("");
+    try {
+      const res = await generateImagePrompt({
+        data: { spec: result, topic, niche: niche || "general" },
+      });
+      setImagePrompt(res.result);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "Something went wrong";
+      if (msg.includes("402") || msg.includes("credits")) {
+        setImageError("AI credits exhausted. Please add credits to your workspace.");
+      } else if (msg.includes("429") || msg.includes("rate")) {
+        setImageError("Rate limit exceeded. Please wait a moment and try again.");
+      } else {
+        setImageError(msg);
+      }
+    } finally {
+      setImageLoading(false);
+    }
+  };
+
+  const handleCopyImagePrompt = async () => {
+    if (!imagePrompt) return;
+    try {
+      await navigator.clipboard.writeText(imagePrompt);
+      setImageCopied(true);
+      toast.success("Image prompt copied!");
+      setTimeout(() => setImageCopied(false), 2000);
+    } catch {
+      toast.error("Failed to copy.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="relative overflow-hidden border-b border-border/40">
