@@ -102,6 +102,8 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
     setLoading(true);
     setResult("");
     setError("");
+    setImagePrompt("");
+    setImageError("");
     try {
       let res: { result: string };
       switch (toolId) {
