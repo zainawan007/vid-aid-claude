@@ -27,6 +27,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/tools/comment-reply-generator", changefreq: "weekly", priority: "0.9" },
           { path: "/tools/thumbnail-text", changefreq: "weekly", priority: "0.9" },
           { path: "/tools/repurposing-assistant", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/thumbnail-designer", changefreq: "weekly", priority: "0.9" },
         ];
         const urls = entries
           .map(
