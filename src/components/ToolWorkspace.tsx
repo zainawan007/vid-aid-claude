@@ -403,7 +403,81 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
           </div>
         )}
 
+        {result && !error && toolId === "thumbDesign" && (
+          <div className="mt-6 rounded-2xl border border-tiktok-cyan/30 bg-surface-raised p-5 sm:p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="flex items-center gap-2">
+                  <Wand2 className="h-4 w-4 text-tiktok-cyan" />
+                  <h2 className="text-base font-semibold text-foreground">Image AI Prompt</h2>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Convert this design spec into ready-to-paste prompts for Midjourney, DALL·E,
+                  Stable Diffusion / Flux, and Nano Banana / Gemini.
+                </p>
+              </div>
+              <Button
+                onClick={handleGenerateImagePrompt}
+                disabled={imageLoading}
+                className="bg-gradient-to-r from-tiktok-cyan to-tiktok-pink font-bold text-accent-foreground hover:opacity-90"
+              >
+                {imageLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Generating...
+                  </>
+                ) : (
+                  <>
+                    <Wand2 className="mr-2 h-4 w-4" />
+                    {imagePrompt ? "Regenerate Prompt" : "Generate Image Prompt"}
+                  </>
+                )}
+              </Button>
+            </div>
+
+            {imageError && (
+              <div className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 p-4 text-sm text-destructive">
+                {imageError}
+              </div>
+            )}
+
+            {imagePrompt && !imageError && (
+              <div className="mt-4 overflow-hidden rounded-xl border border-border/50 bg-background">
+                <div className="flex items-center justify-between border-b border-border/40 px-4 py-2">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Ready-to-paste prompts
+                  </span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleCopyImagePrompt}
+                    className="gap-1.5 text-xs text-muted-foreground hover:text-foreground"
+                  >
+                    {imageCopied ? (
+                      <>
+                        <Check className="h-3.5 w-3.5 text-green-400" />
+                        Copied
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-3.5 w-3.5" />
+                        Copy all
+                      </>
+                    )}
+                  </Button>
+                </div>
+                <div className="max-h-[500px] overflow-y-auto p-4">
+                  <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-foreground">
+                    {imagePrompt}
+                  </pre>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
         <AdBanner />
+
       </main>
 
       <footer className="border-t border-border/30 py-6 text-center text-xs text-muted-foreground">
