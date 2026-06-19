@@ -13,10 +13,14 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
+import { Route as ToolsThumbnailTextRouteImport } from './routes/tools.thumbnail-text'
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
+import { Route as ToolsRepurposingAssistantRouteImport } from './routes/tools.repurposing-assistant'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
+import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
 import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content-calendar'
+import { Route as ToolsCommentReplyGeneratorRouteImport } from './routes/tools.comment-reply-generator'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
 import { Route as ToolsBioOptimizerRouteImport } from './routes/tools.bio-optimizer'
 
@@ -40,14 +44,30 @@ const ToolsTrendAnglesRoute = ToolsTrendAnglesRouteImport.update({
   path: '/tools/trend-angles',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsThumbnailTextRoute = ToolsThumbnailTextRouteImport.update({
+  id: '/tools/thumbnail-text',
+  path: '/tools/thumbnail-text',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsScriptWriterRoute = ToolsScriptWriterRouteImport.update({
   id: '/tools/script-writer',
   path: '/tools/script-writer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsRepurposingAssistantRoute =
+  ToolsRepurposingAssistantRouteImport.update({
+    id: '/tools/repurposing-assistant',
+    path: '/tools/repurposing-assistant',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsHookGeneratorRoute = ToolsHookGeneratorRouteImport.update({
   id: '/tools/hook-generator',
   path: '/tools/hook-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsHookAbTesterRoute = ToolsHookAbTesterRouteImport.update({
+  id: '/tools/hook-ab-tester',
+  path: '/tools/hook-ab-tester',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsHashtagPackRoute = ToolsHashtagPackRouteImport.update({
@@ -60,6 +80,12 @@ const ToolsContentCalendarRoute = ToolsContentCalendarRouteImport.update({
   path: '/tools/content-calendar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsCommentReplyGeneratorRoute =
+  ToolsCommentReplyGeneratorRouteImport.update({
+    id: '/tools/comment-reply-generator',
+    path: '/tools/comment-reply-generator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsCaptionCrafterRoute = ToolsCaptionCrafterRouteImport.update({
   id: '/tools/caption-crafter',
   path: '/tools/caption-crafter',
@@ -76,10 +102,14 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
@@ -88,10 +118,14 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
@@ -101,10 +135,14 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
@@ -115,10 +153,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
+    | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/repurposing-assistant'
     | '/tools/script-writer'
+    | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
   fileRoutesByTo: FileRoutesByTo
@@ -127,10 +169,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
+    | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/repurposing-assistant'
     | '/tools/script-writer'
+    | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
   id:
@@ -139,10 +185,14 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
+    | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/repurposing-assistant'
     | '/tools/script-writer'
+    | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
   fileRoutesById: FileRoutesById
@@ -152,10 +202,14 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ToolsBioOptimizerRoute: typeof ToolsBioOptimizerRoute
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
+  ToolsCommentReplyGeneratorRoute: typeof ToolsCommentReplyGeneratorRoute
   ToolsContentCalendarRoute: typeof ToolsContentCalendarRoute
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
+  ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
+  ToolsRepurposingAssistantRoute: typeof ToolsRepurposingAssistantRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
+  ToolsThumbnailTextRoute: typeof ToolsThumbnailTextRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
   ToolsVideoIdeasRoute: typeof ToolsVideoIdeasRoute
 }
@@ -190,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsTrendAnglesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/thumbnail-text': {
+      id: '/tools/thumbnail-text'
+      path: '/tools/thumbnail-text'
+      fullPath: '/tools/thumbnail-text'
+      preLoaderRoute: typeof ToolsThumbnailTextRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/script-writer': {
       id: '/tools/script-writer'
       path: '/tools/script-writer'
@@ -197,11 +258,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsScriptWriterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/repurposing-assistant': {
+      id: '/tools/repurposing-assistant'
+      path: '/tools/repurposing-assistant'
+      fullPath: '/tools/repurposing-assistant'
+      preLoaderRoute: typeof ToolsRepurposingAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/hook-generator': {
       id: '/tools/hook-generator'
       path: '/tools/hook-generator'
       fullPath: '/tools/hook-generator'
       preLoaderRoute: typeof ToolsHookGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/hook-ab-tester': {
+      id: '/tools/hook-ab-tester'
+      path: '/tools/hook-ab-tester'
+      fullPath: '/tools/hook-ab-tester'
+      preLoaderRoute: typeof ToolsHookAbTesterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/hashtag-pack': {
@@ -216,6 +291,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/content-calendar'
       fullPath: '/tools/content-calendar'
       preLoaderRoute: typeof ToolsContentCalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/comment-reply-generator': {
+      id: '/tools/comment-reply-generator'
+      path: '/tools/comment-reply-generator'
+      fullPath: '/tools/comment-reply-generator'
+      preLoaderRoute: typeof ToolsCommentReplyGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/caption-crafter': {
@@ -240,10 +322,14 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ToolsBioOptimizerRoute: ToolsBioOptimizerRoute,
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
+  ToolsCommentReplyGeneratorRoute: ToolsCommentReplyGeneratorRoute,
   ToolsContentCalendarRoute: ToolsContentCalendarRoute,
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
+  ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
+  ToolsRepurposingAssistantRoute: ToolsRepurposingAssistantRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
+  ToolsThumbnailTextRoute: ToolsThumbnailTextRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
   ToolsVideoIdeasRoute: ToolsVideoIdeasRoute,
 }

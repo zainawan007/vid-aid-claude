@@ -124,3 +124,55 @@ export const generateBio = createServerFn({ method: "POST" })
     });
     return { result: text };
   });
+
+export const generateHookAB = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok A/B testing expert. For ONE topic, write 5 alternate opening hook variations that each use a DIFFERENT psychological lever (curiosity gap, bold claim, contrarian take, question, pattern interrupt). Each hook: under 12 words. After each, add LEVER: <name> and TEST HYPOTHESIS: <1-sentence what you're testing>. Number 1-5.",
+      prompt: `Topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nGenerate 5 A/B hook variations to split-test.`,
+    });
+    return { result: text };
+  });
+
+export const generateCommentReplies = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok engagement coach. Generate 5 witty, on-brand reply templates a creator can use to respond to common comment types. Cover: 1) genuine question, 2) hate/troll, 3) compliment, 4) skeptical/doubt, 5) tag-a-friend request. Each reply: under 120 chars, designed to boost engagement (invite more replies, defuse hate, build community). Label each by comment type.",
+      prompt: `Creator topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nWrite 5 comment reply templates.`,
+    });
+    return { result: text };
+  });
+
+export const generateThumbnailText = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok thumbnail and on-screen text expert. Generate 6 short, punchy text overlays optimized for thumbnails and the first 3 seconds of a video. Rules: 2-5 words each, ALL CAPS friendly, high-contrast curiosity. For each: TEXT, PLACEMENT (top/center/bottom), and WHY IT STOPS THE SCROLL. Number 1-6.",
+      prompt: `Topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nGenerate 6 thumbnail + on-screen title overlays.`,
+    });
+    return { result: text };
+  });
+
+export const generateRepurpose = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a short-form repurposing strategist. Take a TikTok script/idea and rewrite it for two other platforms. Output 3 sections clearly labeled: 1) TIKTOK (original-style, 30-45s, native CTA), 2) INSTAGRAM REELS (slightly more polished, aesthetic CTA, suggest 5 hashtags), 3) YOUTUBE SHORTS (clearer value framing, retention-optimized opener, end-screen CTA to subscribe). For each: HOOK, BODY, CTA, and 1 platform-specific note.",
+      prompt: `Original TikTok topic/script: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nRewrite for TikTok, Instagram Reels, and YouTube Shorts.`,
+    });
+    return { result: text };
+  });
