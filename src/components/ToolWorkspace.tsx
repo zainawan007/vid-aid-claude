@@ -45,6 +45,7 @@ import {
   Image as ImageIcon,
   Repeat,
   Palette,
+  Wand2,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
