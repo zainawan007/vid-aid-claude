@@ -18,6 +18,7 @@ import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-gene
 import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
 import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content-calendar'
+import { Route as ToolsCommentReplyGeneratorRouteImport } from './routes/tools.comment-reply-generator'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
 import { Route as ToolsBioOptimizerRouteImport } from './routes/tools.bio-optimizer'
 
@@ -66,6 +67,12 @@ const ToolsContentCalendarRoute = ToolsContentCalendarRouteImport.update({
   path: '/tools/content-calendar',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsCommentReplyGeneratorRoute =
+  ToolsCommentReplyGeneratorRouteImport.update({
+    id: '/tools/comment-reply-generator',
+    path: '/tools/comment-reply-generator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsCaptionCrafterRoute = ToolsCaptionCrafterRouteImport.update({
   id: '/tools/caption-crafter',
   path: '/tools/caption-crafter',
@@ -82,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
@@ -95,6 +103,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
@@ -109,6 +118,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
@@ -164,6 +177,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ToolsBioOptimizerRoute: typeof ToolsBioOptimizerRoute
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
+  ToolsCommentReplyGeneratorRoute: typeof ToolsCommentReplyGeneratorRoute
   ToolsContentCalendarRoute: typeof ToolsContentCalendarRoute
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
   ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
@@ -238,6 +252,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsContentCalendarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/comment-reply-generator': {
+      id: '/tools/comment-reply-generator'
+      path: '/tools/comment-reply-generator'
+      fullPath: '/tools/comment-reply-generator'
+      preLoaderRoute: typeof ToolsCommentReplyGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/caption-crafter': {
       id: '/tools/caption-crafter'
       path: '/tools/caption-crafter'
@@ -260,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ToolsBioOptimizerRoute: ToolsBioOptimizerRoute,
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
+  ToolsCommentReplyGeneratorRoute: ToolsCommentReplyGeneratorRoute,
   ToolsContentCalendarRoute: ToolsContentCalendarRoute,
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
   ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
