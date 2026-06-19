@@ -13,6 +13,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
+import { Route as ToolsThumbnailTextRouteImport } from './routes/tools.thumbnail-text'
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
 import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
@@ -40,6 +41,11 @@ const ToolsVideoIdeasRoute = ToolsVideoIdeasRouteImport.update({
 const ToolsTrendAnglesRoute = ToolsTrendAnglesRouteImport.update({
   id: '/tools/trend-angles',
   path: '/tools/trend-angles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsThumbnailTextRoute = ToolsThumbnailTextRouteImport.update({
+  id: '/tools/thumbnail-text',
+  path: '/tools/thumbnail-text',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsScriptWriterRoute = ToolsScriptWriterRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/script-writer'
+    | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
   fileRoutesByTo: FileRoutesByTo
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/script-writer'
+    | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
   id:
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/script-writer'
+    | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
   fileRoutesById: FileRoutesById
@@ -183,6 +195,7 @@ export interface RootRouteChildren {
   ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
+  ToolsThumbnailTextRoute: typeof ToolsThumbnailTextRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
   ToolsVideoIdeasRoute: typeof ToolsVideoIdeasRoute
 }
@@ -215,6 +228,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/trend-angles'
       fullPath: '/tools/trend-angles'
       preLoaderRoute: typeof ToolsTrendAnglesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/thumbnail-text': {
+      id: '/tools/thumbnail-text'
+      path: '/tools/thumbnail-text'
+      fullPath: '/tools/thumbnail-text'
+      preLoaderRoute: typeof ToolsThumbnailTextRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/script-writer': {
@@ -287,6 +307,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
+  ToolsThumbnailTextRoute: ToolsThumbnailTextRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
   ToolsVideoIdeasRoute: ToolsVideoIdeasRoute,
 }
