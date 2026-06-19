@@ -14,6 +14,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
 import { Route as ToolsThumbnailTextRouteImport } from './routes/tools.thumbnail-text'
+import { Route as ToolsThumbnailDesignerRouteImport } from './routes/tools.thumbnail-designer'
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
 import { Route as ToolsRepurposingAssistantRouteImport } from './routes/tools.repurposing-assistant'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
@@ -47,6 +48,11 @@ const ToolsTrendAnglesRoute = ToolsTrendAnglesRouteImport.update({
 const ToolsThumbnailTextRoute = ToolsThumbnailTextRouteImport.update({
   id: '/tools/thumbnail-text',
   path: '/tools/thumbnail-text',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsThumbnailDesignerRoute = ToolsThumbnailDesignerRouteImport.update({
+  id: '/tools/thumbnail-designer',
+  path: '/tools/thumbnail-designer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsScriptWriterRoute = ToolsScriptWriterRouteImport.update({
@@ -109,6 +115,7 @@ export interface FileRoutesByFullPath {
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
@@ -125,6 +132,7 @@ export interface FileRoutesByTo {
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
@@ -160,6 +169,7 @@ export interface FileRouteTypes {
     | '/tools/hook-generator'
     | '/tools/repurposing-assistant'
     | '/tools/script-writer'
+    | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
@@ -176,6 +186,7 @@ export interface FileRouteTypes {
     | '/tools/hook-generator'
     | '/tools/repurposing-assistant'
     | '/tools/script-writer'
+    | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
@@ -192,6 +203,7 @@ export interface FileRouteTypes {
     | '/tools/hook-generator'
     | '/tools/repurposing-assistant'
     | '/tools/script-writer'
+    | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
     | '/tools/video-ideas'
@@ -209,6 +221,7 @@ export interface RootRouteChildren {
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
   ToolsRepurposingAssistantRoute: typeof ToolsRepurposingAssistantRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
+  ToolsThumbnailDesignerRoute: typeof ToolsThumbnailDesignerRoute
   ToolsThumbnailTextRoute: typeof ToolsThumbnailTextRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
   ToolsVideoIdeasRoute: typeof ToolsVideoIdeasRoute
@@ -249,6 +262,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/thumbnail-text'
       fullPath: '/tools/thumbnail-text'
       preLoaderRoute: typeof ToolsThumbnailTextRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/thumbnail-designer': {
+      id: '/tools/thumbnail-designer'
+      path: '/tools/thumbnail-designer'
+      fullPath: '/tools/thumbnail-designer'
+      preLoaderRoute: typeof ToolsThumbnailDesignerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/script-writer': {
@@ -329,6 +349,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
   ToolsRepurposingAssistantRoute: ToolsRepurposingAssistantRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
+  ToolsThumbnailDesignerRoute: ToolsThumbnailDesignerRoute,
   ToolsThumbnailTextRoute: ToolsThumbnailTextRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
   ToolsVideoIdeasRoute: ToolsVideoIdeasRoute,
@@ -336,13 +357,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
