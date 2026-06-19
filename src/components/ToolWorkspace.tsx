@@ -87,6 +87,10 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
+  const [imagePrompt, setImagePrompt] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
+  const [imageCopied, setImageCopied] = useState(false);
+  const [imageError, setImageError] = useState("");
 
   const activeTool = TOOLS.find((t) => t.id === toolId)!;
 
