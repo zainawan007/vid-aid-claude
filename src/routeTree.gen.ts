@@ -15,6 +15,7 @@ import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
+import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
 import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content-calendar'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
@@ -50,6 +51,11 @@ const ToolsHookGeneratorRoute = ToolsHookGeneratorRouteImport.update({
   path: '/tools/hook-generator',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsHookAbTesterRoute = ToolsHookAbTesterRouteImport.update({
+  id: '/tools/hook-ab-tester',
+  path: '/tools/hook-ab-tester',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsHashtagPackRoute = ToolsHashtagPackRouteImport.update({
   id: '/tools/hashtag-pack',
   path: '/tools/hashtag-pack',
@@ -78,6 +84,7 @@ export interface FileRoutesByFullPath {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -103,6 +111,7 @@ export interface FileRoutesById {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
+  '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -117,6 +126,7 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
+    | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/script-writer'
     | '/tools/trend-angles'
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
+    | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/script-writer'
     | '/tools/trend-angles'
@@ -141,6 +152,7 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/content-calendar'
     | '/tools/hashtag-pack'
+    | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/script-writer'
     | '/tools/trend-angles'
@@ -154,6 +166,7 @@ export interface RootRouteChildren {
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
   ToolsContentCalendarRoute: typeof ToolsContentCalendarRoute
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
+  ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
@@ -204,6 +217,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsHookGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/hook-ab-tester': {
+      id: '/tools/hook-ab-tester'
+      path: '/tools/hook-ab-tester'
+      fullPath: '/tools/hook-ab-tester'
+      preLoaderRoute: typeof ToolsHookAbTesterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/hashtag-pack': {
       id: '/tools/hashtag-pack'
       path: '/tools/hashtag-pack'
@@ -242,6 +262,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
   ToolsContentCalendarRoute: ToolsContentCalendarRoute,
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
+  ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
