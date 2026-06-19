@@ -120,6 +120,18 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
         case "bio":
           res = await generateBio({ data: { topic, tone, niche } });
           break;
+        case "hookAB":
+          res = await generateHookAB({ data: { topic, tone, niche } });
+          break;
+        case "replies":
+          res = await generateCommentReplies({ data: { topic, tone, niche } });
+          break;
+        case "thumbnail":
+          res = await generateThumbnailText({ data: { topic, tone, niche } });
+          break;
+        case "repurpose":
+          res = await generateRepurpose({ data: { topic, tone, niche } });
+          break;
       }
       setResult(res!.result);
     } catch (e) {
