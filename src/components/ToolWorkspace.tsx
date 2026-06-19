@@ -23,6 +23,7 @@ import {
   generateCommentReplies,
   generateThumbnailText,
   generateRepurpose,
+  generateThumbnailDesign,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
@@ -42,6 +43,7 @@ import {
   MessagesSquare,
   Image as ImageIcon,
   Repeat,
+  Palette,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
@@ -59,6 +61,7 @@ export const TOOLS = [
   { id: "replies", label: "Comment Replies", icon: MessagesSquare, description: "Witty reply templates", path: "/tools/comment-reply-generator" },
   { id: "thumbnail", label: "Title & Thumbnail Text", icon: ImageIcon, description: "Punchy on-screen overlays", path: "/tools/thumbnail-text" },
   { id: "repurpose", label: "Repurposing Assistant", icon: Repeat, description: "Reels + Shorts rewrites", path: "/tools/repurposing-assistant" },
+  { id: "thumbDesign", label: "Thumbnail Design", icon: Palette, description: "Full thumbnail design spec", path: "/tools/thumbnail-designer" },
 ] as const;
 
 const TONES = ["Hype", "Funny", "Educational", "Aesthetic", "Storytelling"] as const;
@@ -131,6 +134,9 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
           break;
         case "repurpose":
           res = await generateRepurpose({ data: { topic, tone, niche } });
+          break;
+        case "thumbDesign":
+          res = await generateThumbnailDesign({ data: { topic, tone, niche } });
           break;
       }
       setResult(res!.result);
