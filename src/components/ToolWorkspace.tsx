@@ -24,6 +24,7 @@ import {
   generateThumbnailText,
   generateRepurpose,
   generateThumbnailDesign,
+  generateImagePrompt,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
