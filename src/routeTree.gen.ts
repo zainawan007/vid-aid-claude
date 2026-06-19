@@ -15,6 +15,7 @@ import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
 import { Route as ToolsThumbnailTextRouteImport } from './routes/tools.thumbnail-text'
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
+import { Route as ToolsRepurposingAssistantRouteImport } from './routes/tools.repurposing-assistant'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
 import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
@@ -53,6 +54,12 @@ const ToolsScriptWriterRoute = ToolsScriptWriterRouteImport.update({
   path: '/tools/script-writer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsRepurposingAssistantRoute =
+  ToolsRepurposingAssistantRouteImport.update({
+    id: '/tools/repurposing-assistant',
+    path: '/tools/repurposing-assistant',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsHookGeneratorRoute = ToolsHookGeneratorRouteImport.update({
   id: '/tools/hook-generator',
   path: '/tools/hook-generator',
@@ -100,6 +107,7 @@ export interface FileRoutesByFullPath {
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -115,6 +123,7 @@ export interface FileRoutesByTo {
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -131,6 +140,7 @@ export interface FileRoutesById {
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/repurposing-assistant'
     | '/tools/script-writer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/repurposing-assistant'
     | '/tools/script-writer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -178,6 +190,7 @@ export interface FileRouteTypes {
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/repurposing-assistant'
     | '/tools/script-writer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -194,6 +207,7 @@ export interface RootRouteChildren {
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
   ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
+  ToolsRepurposingAssistantRoute: typeof ToolsRepurposingAssistantRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
   ToolsThumbnailTextRoute: typeof ToolsThumbnailTextRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
@@ -242,6 +256,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/script-writer'
       fullPath: '/tools/script-writer'
       preLoaderRoute: typeof ToolsScriptWriterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/repurposing-assistant': {
+      id: '/tools/repurposing-assistant'
+      path: '/tools/repurposing-assistant'
+      fullPath: '/tools/repurposing-assistant'
+      preLoaderRoute: typeof ToolsRepurposingAssistantRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/hook-generator': {
@@ -306,6 +327,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
   ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
+  ToolsRepurposingAssistantRoute: ToolsRepurposingAssistantRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
   ToolsThumbnailTextRoute: ToolsThumbnailTextRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
