@@ -24,6 +24,7 @@ import {
   generateThumbnailText,
   generateRepurpose,
   generateThumbnailDesign,
+  generateImagePrompt,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
@@ -44,6 +45,7 @@ import {
   Image as ImageIcon,
   Repeat,
   Palette,
+  Wand2,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
@@ -85,6 +87,10 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
+  const [imagePrompt, setImagePrompt] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
+  const [imageCopied, setImageCopied] = useState(false);
+  const [imageError, setImageError] = useState("");
 
   const activeTool = TOOLS.find((t) => t.id === toolId)!;
 
@@ -96,6 +102,8 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
     setLoading(true);
     setResult("");
     setError("");
+    setImagePrompt("");
+    setImageError("");
     try {
       let res: { result: string };
       switch (toolId) {
@@ -161,6 +169,42 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
       setCopied(true);
       toast.success("Copied to clipboard!");
       setTimeout(() => setCopied(false), 2000);
+    } catch {
+      toast.error("Failed to copy.");
+    }
+  };
+
+  const handleGenerateImagePrompt = async () => {
+    if (!result) return;
+    setImageLoading(true);
+    setImagePrompt("");
+    setImageError("");
+    try {
+      const res = await generateImagePrompt({
+        data: { spec: result, topic, niche: niche || "general" },
+      });
+      setImagePrompt(res.result);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "Something went wrong";
+      if (msg.includes("402") || msg.includes("credits")) {
+        setImageError("AI credits exhausted. Please add credits to your workspace.");
+      } else if (msg.includes("429") || msg.includes("rate")) {
+        setImageError("Rate limit exceeded. Please wait a moment and try again.");
+      } else {
+        setImageError(msg);
+      }
+    } finally {
+      setImageLoading(false);
+    }
+  };
+
+  const handleCopyImagePrompt = async () => {
+    if (!imagePrompt) return;
+    try {
+      await navigator.clipboard.writeText(imagePrompt);
+      setImageCopied(true);
+      toast.success("Image prompt copied!");
+      setTimeout(() => setImageCopied(false), 2000);
     } catch {
       toast.error("Failed to copy.");
     }
@@ -359,7 +403,81 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
           </div>
         )}
 
+        {result && !error && toolId === "thumbDesign" && (
+          <div className="mt-6 rounded-2xl border border-tiktok-cyan/30 bg-surface-raised p-5 sm:p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="flex items-center gap-2">
+                  <Wand2 className="h-4 w-4 text-tiktok-cyan" />
+                  <h2 className="text-base font-semibold text-foreground">Image AI Prompt</h2>
+                </div>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Convert this design spec into ready-to-paste prompts for Midjourney, DALL·E,
+                  Stable Diffusion / Flux, and Nano Banana / Gemini.
+                </p>
+              </div>
+              <Button
+                onClick={handleGenerateImagePrompt}
+                disabled={imageLoading}
+                className="bg-gradient-to-r from-tiktok-cyan to-tiktok-pink font-bold text-accent-foreground hover:opacity-90"
+              >
+                {imageLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Generating...
+                  </>
+                ) : (
+                  <>
+                    <Wand2 className="mr-2 h-4 w-4" />
+                    {imagePrompt ? "Regenerate Prompt" : "Generate Image Prompt"}
+                  </>
+                )}
+              </Button>
+            </div>
+
+            {imageError && (
+              <div className="mt-4 rounded-xl border border-destructive/30 bg-destructive/10 p-4 text-sm text-destructive">
+                {imageError}
+              </div>
+            )}
+
+            {imagePrompt && !imageError && (
+              <div className="mt-4 overflow-hidden rounded-xl border border-border/50 bg-background">
+                <div className="flex items-center justify-between border-b border-border/40 px-4 py-2">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Ready-to-paste prompts
+                  </span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={handleCopyImagePrompt}
+                    className="gap-1.5 text-xs text-muted-foreground hover:text-foreground"
+                  >
+                    {imageCopied ? (
+                      <>
+                        <Check className="h-3.5 w-3.5 text-green-400" />
+                        Copied
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-3.5 w-3.5" />
+                        Copy all
+                      </>
+                    )}
+                  </Button>
+                </div>
+                <div className="max-h-[500px] overflow-y-auto p-4">
+                  <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-foreground">
+                    {imagePrompt}
+                  </pre>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
         <AdBanner />
+
       </main>
 
       <footer className="border-t border-border/30 py-6 text-center text-xs text-muted-foreground">

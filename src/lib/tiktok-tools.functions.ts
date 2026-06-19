@@ -189,3 +189,23 @@ export const generateThumbnailDesign = createServerFn({ method: "POST" })
     });
     return { result: text };
   });
+
+const ImagePromptInput = z.object({
+  spec: z.string().min(10).max(8000),
+  topic: z.string().min(1).max(500),
+  niche: z.string().min(1).max(200),
+});
+
+export const generateImagePrompt = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => ImagePromptInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You convert a thumbnail design spec into ready-to-paste prompts for popular AI image generators. Output EXACTLY these 4 labeled sections, each as a single dense paragraph the user can copy verbatim — no preamble, no bullets, no markdown headers other than the labels shown:\n\n=== MIDJOURNEY ===\n<one paragraph prompt, comma-separated descriptors, ends with --ar 9:16 --style raw --v 6>\n\n=== DALL·E / ChatGPT ===\n<one natural-language paragraph, 9:16 vertical, explicit about subject pose, lighting, color hex codes, on-image text in quotes with placement, font style>\n\n=== STABLE DIFFUSION / FLUX ===\n<positive prompt as comma-separated tags, then a new line starting with `Negative prompt:` listing: blurry, low contrast, extra fingers, distorted text, watermark, cluttered>\n\n=== NANO BANANA / GEMINI ===\n<one paragraph, plainspoken, explicit 9:16 vertical thumbnail, restate exact on-image text in quotes with placement and font, palette hex codes, safe-zone reminder>\n\nRules: bake in the exact hex colors, the exact on-image text (in quotes), font style, subject, pose, props, lighting, and 9:16 vertical thumbnail framing from the spec. If the spec includes text overlay, every prompt must instruct the model to render that text legibly with the specified placement. Keep each prompt under 120 words.",
+      prompt: `Video topic: ${data.topic}\nNiche: ${data.niche}\n\nDesign spec to convert:\n\n${data.spec}`,
+    });
+    return { result: text };
+  });
+
