@@ -19,6 +19,10 @@ import {
   generateCalendar,
   generateTrends,
   generateBio,
+  generateHookAB,
+  generateCommentReplies,
+  generateThumbnailText,
+  generateRepurpose,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
@@ -34,6 +38,10 @@ import {
   CalendarDays,
   TrendingUp,
   UserCircle,
+  FlaskConical,
+  MessagesSquare,
+  Image as ImageIcon,
+  Repeat,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
@@ -47,6 +55,10 @@ export const TOOLS = [
   { id: "calendar", label: "Content Calendar", icon: CalendarDays, description: "7-day posting plan", path: "/tools/content-calendar" },
   { id: "trends", label: "Trend Angles", icon: TrendingUp, description: "Ride viral formats", path: "/tools/trend-angles" },
   { id: "bio", label: "Bio Optimizer", icon: UserCircle, description: "3 profile bios", path: "/tools/bio-optimizer" },
+  { id: "hookAB", label: "Hook A/B Tester", icon: FlaskConical, description: "5 hooks to split-test", path: "/tools/hook-ab-tester" },
+  { id: "replies", label: "Comment Replies", icon: MessagesSquare, description: "Witty reply templates", path: "/tools/comment-reply-generator" },
+  { id: "thumbnail", label: "Title & Thumbnail Text", icon: ImageIcon, description: "Punchy on-screen overlays", path: "/tools/thumbnail-text" },
+  { id: "repurpose", label: "Repurposing Assistant", icon: Repeat, description: "Reels + Shorts rewrites", path: "/tools/repurposing-assistant" },
 ] as const;
 
 const TONES = ["Hype", "Funny", "Educational", "Aesthetic", "Storytelling"] as const;
