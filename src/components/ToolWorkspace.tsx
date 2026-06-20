@@ -25,6 +25,12 @@ import {
   generateRepurpose,
   generateThumbnailDesign,
   generateImagePrompt,
+  generateRetention,
+  generateLoopCTA,
+  generateSponsorshipPitch,
+  generateSeriesNames,
+  generatePacing,
+  generateDuetStitch,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
@@ -46,6 +52,12 @@ import {
   Repeat,
   Palette,
   Wand2,
+  Stethoscope,
+  RotateCcw,
+  Handshake,
+  ListOrdered,
+  Timer,
+  Users,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
@@ -64,6 +76,12 @@ export const TOOLS = [
   { id: "thumbnail", label: "Title & Thumbnail Text", icon: ImageIcon, description: "Punchy on-screen overlays", path: "/tools/thumbnail-text" },
   { id: "repurpose", label: "Repurposing Assistant", icon: Repeat, description: "Reels + Shorts rewrites", path: "/tools/repurposing-assistant" },
   { id: "thumbDesign", label: "Thumbnail Design", icon: Palette, description: "Full thumbnail design spec", path: "/tools/thumbnail-designer" },
+  { id: "retention", label: "Retention Doctor", icon: Stethoscope, description: "Find 3 drop-off points", path: "/tools/retention-doctor" },
+  { id: "loopCTA", label: "Loop & CTA Builder", icon: RotateCcw, description: "3 endings under 15 words", path: "/tools/loop-cta-builder" },
+  { id: "pitch", label: "Sponsorship Pitch", icon: Handshake, description: "Brand outreach email", path: "/tools/sponsorship-pitch" },
+  { id: "seriesNames", label: "Series Namer", icon: ListOrdered, description: "8 recurring series names", path: "/tools/series-namer" },
+  { id: "pacing", label: "Pacing Checker", icon: Timer, description: "Script length vs seconds", path: "/tools/pacing-checker" },
+  { id: "duetStitch", label: "Duet & Stitch Finder", icon: Users, description: "5 response angles", path: "/tools/duet-stitch-finder" },
 ] as const;
 
 const TONES = ["Hype", "Funny", "Educational", "Aesthetic", "Storytelling"] as const;
@@ -145,6 +163,24 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
           break;
         case "thumbDesign":
           res = await generateThumbnailDesign({ data: { topic, tone, niche } });
+          break;
+        case "retention":
+          res = await generateRetention({ data: { topic, tone, niche } });
+          break;
+        case "loopCTA":
+          res = await generateLoopCTA({ data: { topic, tone, niche } });
+          break;
+        case "pitch":
+          res = await generateSponsorshipPitch({ data: { topic, tone, niche } });
+          break;
+        case "seriesNames":
+          res = await generateSeriesNames({ data: { topic, tone, niche } });
+          break;
+        case "pacing":
+          res = await generatePacing({ data: { topic, tone, niche } });
+          break;
+        case "duetStitch":
+          res = await generateDuetStitch({ data: { topic, tone, niche } });
           break;
       }
       setResult(res!.result);
