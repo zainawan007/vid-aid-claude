@@ -15,11 +15,17 @@ import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
 import { Route as ToolsThumbnailTextRouteImport } from './routes/tools.thumbnail-text'
 import { Route as ToolsThumbnailDesignerRouteImport } from './routes/tools.thumbnail-designer'
+import { Route as ToolsSponsorshipPitchRouteImport } from './routes/tools.sponsorship-pitch'
+import { Route as ToolsSeriesNamerRouteImport } from './routes/tools.series-namer'
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
+import { Route as ToolsRetentionDoctorRouteImport } from './routes/tools.retention-doctor'
 import { Route as ToolsRepurposingAssistantRouteImport } from './routes/tools.repurposing-assistant'
+import { Route as ToolsPacingCheckerRouteImport } from './routes/tools.pacing-checker'
+import { Route as ToolsLoopCtaBuilderRouteImport } from './routes/tools.loop-cta-builder'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
 import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
+import { Route as ToolsDuetStitchFinderRouteImport } from './routes/tools.duet-stitch-finder'
 import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content-calendar'
 import { Route as ToolsCommentReplyGeneratorRouteImport } from './routes/tools.comment-reply-generator'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
@@ -55,9 +61,24 @@ const ToolsThumbnailDesignerRoute = ToolsThumbnailDesignerRouteImport.update({
   path: '/tools/thumbnail-designer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsSponsorshipPitchRoute = ToolsSponsorshipPitchRouteImport.update({
+  id: '/tools/sponsorship-pitch',
+  path: '/tools/sponsorship-pitch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsSeriesNamerRoute = ToolsSeriesNamerRouteImport.update({
+  id: '/tools/series-namer',
+  path: '/tools/series-namer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsScriptWriterRoute = ToolsScriptWriterRouteImport.update({
   id: '/tools/script-writer',
   path: '/tools/script-writer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsRetentionDoctorRoute = ToolsRetentionDoctorRouteImport.update({
+  id: '/tools/retention-doctor',
+  path: '/tools/retention-doctor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsRepurposingAssistantRoute =
@@ -66,6 +87,16 @@ const ToolsRepurposingAssistantRoute =
     path: '/tools/repurposing-assistant',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ToolsPacingCheckerRoute = ToolsPacingCheckerRouteImport.update({
+  id: '/tools/pacing-checker',
+  path: '/tools/pacing-checker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsLoopCtaBuilderRoute = ToolsLoopCtaBuilderRouteImport.update({
+  id: '/tools/loop-cta-builder',
+  path: '/tools/loop-cta-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsHookGeneratorRoute = ToolsHookGeneratorRouteImport.update({
   id: '/tools/hook-generator',
   path: '/tools/hook-generator',
@@ -79,6 +110,11 @@ const ToolsHookAbTesterRoute = ToolsHookAbTesterRouteImport.update({
 const ToolsHashtagPackRoute = ToolsHashtagPackRouteImport.update({
   id: '/tools/hashtag-pack',
   path: '/tools/hashtag-pack',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsDuetStitchFinderRoute = ToolsDuetStitchFinderRouteImport.update({
+  id: '/tools/duet-stitch-finder',
+  path: '/tools/duet-stitch-finder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsContentCalendarRoute = ToolsContentCalendarRouteImport.update({
@@ -110,11 +146,17 @@ export interface FileRoutesByFullPath {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
+  '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/series-namer': typeof ToolsSeriesNamerRoute
+  '/tools/sponsorship-pitch': typeof ToolsSponsorshipPitchRoute
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -127,11 +169,17 @@ export interface FileRoutesByTo {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
+  '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/series-namer': typeof ToolsSeriesNamerRoute
+  '/tools/sponsorship-pitch': typeof ToolsSponsorshipPitchRoute
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -145,11 +193,17 @@ export interface FileRoutesById {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
+  '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/series-namer': typeof ToolsSeriesNamerRoute
+  '/tools/sponsorship-pitch': typeof ToolsSponsorshipPitchRoute
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -164,11 +218,17 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/loop-cta-builder'
+    | '/tools/pacing-checker'
     | '/tools/repurposing-assistant'
+    | '/tools/retention-doctor'
     | '/tools/script-writer'
+    | '/tools/series-namer'
+    | '/tools/sponsorship-pitch'
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -181,11 +241,17 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/loop-cta-builder'
+    | '/tools/pacing-checker'
     | '/tools/repurposing-assistant'
+    | '/tools/retention-doctor'
     | '/tools/script-writer'
+    | '/tools/series-namer'
+    | '/tools/sponsorship-pitch'
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -198,11 +264,17 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/loop-cta-builder'
+    | '/tools/pacing-checker'
     | '/tools/repurposing-assistant'
+    | '/tools/retention-doctor'
     | '/tools/script-writer'
+    | '/tools/series-namer'
+    | '/tools/sponsorship-pitch'
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -216,11 +288,17 @@ export interface RootRouteChildren {
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
   ToolsCommentReplyGeneratorRoute: typeof ToolsCommentReplyGeneratorRoute
   ToolsContentCalendarRoute: typeof ToolsContentCalendarRoute
+  ToolsDuetStitchFinderRoute: typeof ToolsDuetStitchFinderRoute
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
   ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
+  ToolsLoopCtaBuilderRoute: typeof ToolsLoopCtaBuilderRoute
+  ToolsPacingCheckerRoute: typeof ToolsPacingCheckerRoute
   ToolsRepurposingAssistantRoute: typeof ToolsRepurposingAssistantRoute
+  ToolsRetentionDoctorRoute: typeof ToolsRetentionDoctorRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
+  ToolsSeriesNamerRoute: typeof ToolsSeriesNamerRoute
+  ToolsSponsorshipPitchRoute: typeof ToolsSponsorshipPitchRoute
   ToolsThumbnailDesignerRoute: typeof ToolsThumbnailDesignerRoute
   ToolsThumbnailTextRoute: typeof ToolsThumbnailTextRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
@@ -271,6 +349,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsThumbnailDesignerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/sponsorship-pitch': {
+      id: '/tools/sponsorship-pitch'
+      path: '/tools/sponsorship-pitch'
+      fullPath: '/tools/sponsorship-pitch'
+      preLoaderRoute: typeof ToolsSponsorshipPitchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/series-namer': {
+      id: '/tools/series-namer'
+      path: '/tools/series-namer'
+      fullPath: '/tools/series-namer'
+      preLoaderRoute: typeof ToolsSeriesNamerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/script-writer': {
       id: '/tools/script-writer'
       path: '/tools/script-writer'
@@ -278,11 +370,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsScriptWriterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/retention-doctor': {
+      id: '/tools/retention-doctor'
+      path: '/tools/retention-doctor'
+      fullPath: '/tools/retention-doctor'
+      preLoaderRoute: typeof ToolsRetentionDoctorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/repurposing-assistant': {
       id: '/tools/repurposing-assistant'
       path: '/tools/repurposing-assistant'
       fullPath: '/tools/repurposing-assistant'
       preLoaderRoute: typeof ToolsRepurposingAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/pacing-checker': {
+      id: '/tools/pacing-checker'
+      path: '/tools/pacing-checker'
+      fullPath: '/tools/pacing-checker'
+      preLoaderRoute: typeof ToolsPacingCheckerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/loop-cta-builder': {
+      id: '/tools/loop-cta-builder'
+      path: '/tools/loop-cta-builder'
+      fullPath: '/tools/loop-cta-builder'
+      preLoaderRoute: typeof ToolsLoopCtaBuilderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/hook-generator': {
@@ -304,6 +417,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/hashtag-pack'
       fullPath: '/tools/hashtag-pack'
       preLoaderRoute: typeof ToolsHashtagPackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/duet-stitch-finder': {
+      id: '/tools/duet-stitch-finder'
+      path: '/tools/duet-stitch-finder'
+      fullPath: '/tools/duet-stitch-finder'
+      preLoaderRoute: typeof ToolsDuetStitchFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/content-calendar': {
@@ -344,11 +464,17 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
   ToolsCommentReplyGeneratorRoute: ToolsCommentReplyGeneratorRoute,
   ToolsContentCalendarRoute: ToolsContentCalendarRoute,
+  ToolsDuetStitchFinderRoute: ToolsDuetStitchFinderRoute,
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
   ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
+  ToolsLoopCtaBuilderRoute: ToolsLoopCtaBuilderRoute,
+  ToolsPacingCheckerRoute: ToolsPacingCheckerRoute,
   ToolsRepurposingAssistantRoute: ToolsRepurposingAssistantRoute,
+  ToolsRetentionDoctorRoute: ToolsRetentionDoctorRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
+  ToolsSeriesNamerRoute: ToolsSeriesNamerRoute,
+  ToolsSponsorshipPitchRoute: ToolsSponsorshipPitchRoute,
   ToolsThumbnailDesignerRoute: ToolsThumbnailDesignerRoute,
   ToolsThumbnailTextRoute: ToolsThumbnailTextRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
