@@ -209,3 +209,83 @@ export const generateImagePrompt = createServerFn({ method: "POST" })
     return { result: text };
   });
 
+export const generateRetention = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok retention doctor. Given a script (provided as the Topic field), identify the 3 most likely viewer drop-off points and fix each. Output exactly 3 numbered sections: 1) TIMESTAMP (approx second mark), 2) ISSUE (what makes viewers swipe — pacing, weak hook, confusing line, dead air), 3) FIX (concrete rewrite or edit). End with OVERALL RETENTION SCORE: x/10 and BIGGEST RISK: <1 sentence>.",
+      prompt: `Script (Topic):\n${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nDiagnose drop-offs and fixes.`,
+    });
+    return { result: text };
+  });
+
+export const generateLoopCTA = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok endings specialist. Generate 3 video endings, each under 15 words. Mix LOOP endings (line that flows back into the opening so the video replays seamlessly) and CTA endings (drive comments, follows, saves, or shares). For each: TYPE (loop/cta), TEXT (the actual line), WHY IT WORKS (1 sentence). Number 1-3.",
+      prompt: `Video topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nWrite 3 loop + CTA endings under 15 words each.`,
+    });
+    return { result: text };
+  });
+
+export const generateSponsorshipPitch = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a creator-side brand outreach writer. Write a sponsorship pitch under 150 words. Output: 1) SUBJECT LINE (under 60 chars, specific, not generic), 2) PITCH (warm, confident, mentions a concrete collab idea tailored to the brand, includes a soft proof point and clear next step), 3) FOLLOW-UP TIP (1 sentence on when/how to nudge). No fake stats. Keep it human, not corporate.",
+      prompt: `Creator niche/brand: ${data.topic}\nTone: ${data.tone}\nTarget niche/brand to pitch: ${data.niche}\n\nWrite the outreach email.`,
+    });
+    return { result: text };
+  });
+
+export const generateSeriesNames = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok series naming expert. Generate 8 series names that creators can use as a recurring on-screen title. Mix 4 styles evenly (2 each): PUNNY (wordplay), LITERAL (clear what it is), NUMBERED (e.g. '60-Second X', 'Day 1 of...'), BRANDED (signature creator-owned phrase). For each: NAME, STYLE label, 1-sentence WHY. Number 1-8.",
+      prompt: `Niche: ${data.niche}\nTone: ${data.tone}\nFormat description (Topic): ${data.topic}\n\nName the series 8 ways.`,
+    });
+    return { result: text };
+  });
+
+export const generatePacing = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok pacing checker. The Topic field IS the script. The Niche field is the target seconds (parse the first number). Use 2.5-3 words/sec for natural speech. Output exactly: WORD COUNT, TARGET SECONDS, ESTIMATED SPEAKING SECONDS (range low-high), VERDICT (too short / good fit / too long), DENSE SENTENCES (list every sentence over 20 words verbatim, or 'None'). End with 1 concrete tightening suggestion if too long, or 1 padding suggestion if too short.",
+      prompt: `Script (Topic):\n${data.topic}\nTarget seconds (Niche): ${data.niche}\nTone: ${data.tone}\n\nRun the pacing check.`,
+    });
+    return { result: text };
+  });
+
+export const generateDuetStitch = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok duet/stitch strategist. Given a trending video description, generate 5 response angles that add value, humor, or a contrarian take — never lazy reaction-face content. Mix duets and stitches. For each: TYPE (duet/stitch), ANGLE (1-sentence concept), HOOK (the first line you'd say), WHY IT WORKS. Number 1-5.",
+      prompt: `Trending video (Topic): ${data.topic}\nTone: ${data.tone}\nYour niche: ${data.niche}\n\nGive 5 duet/stitch angles.`,
+    });
+    return { result: text };
+  });
+
+
+
