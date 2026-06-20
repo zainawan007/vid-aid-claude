@@ -28,6 +28,12 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/tools/thumbnail-text", changefreq: "weekly", priority: "0.9" },
           { path: "/tools/repurposing-assistant", changefreq: "weekly", priority: "0.9" },
           { path: "/tools/thumbnail-designer", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/retention-doctor", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/loop-cta-builder", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/sponsorship-pitch", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/series-namer", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/pacing-checker", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/duet-stitch-finder", changefreq: "weekly", priority: "0.9" },
         ];
         const urls = entries
           .map(
