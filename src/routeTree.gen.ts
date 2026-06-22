@@ -15,12 +15,17 @@ import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
 import { Route as ToolsThumbnailTextRouteImport } from './routes/tools.thumbnail-text'
 import { Route as ToolsThumbnailDesignerRouteImport } from './routes/tools.thumbnail-designer'
+import { Route as ToolsStorytimeBuilderRouteImport } from './routes/tools.storytime-builder'
 import { Route as ToolsSponsorshipPitchRouteImport } from './routes/tools.sponsorship-pitch'
 import { Route as ToolsSeriesNamerRouteImport } from './routes/tools.series-namer'
+import { Route as ToolsSeoDescriptionRouteImport } from './routes/tools.seo-description'
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
 import { Route as ToolsRetentionDoctorRouteImport } from './routes/tools.retention-doctor'
 import { Route as ToolsRepurposingAssistantRouteImport } from './routes/tools.repurposing-assistant'
+import { Route as ToolsPinnedCommentRouteImport } from './routes/tools.pinned-comment'
+import { Route as ToolsPhotoCarouselRouteImport } from './routes/tools.photo-carousel'
 import { Route as ToolsPacingCheckerRouteImport } from './routes/tools.pacing-checker'
+import { Route as ToolsNicheFinderRouteImport } from './routes/tools.niche-finder'
 import { Route as ToolsLoopCtaBuilderRouteImport } from './routes/tools.loop-cta-builder'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
 import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
@@ -61,6 +66,11 @@ const ToolsThumbnailDesignerRoute = ToolsThumbnailDesignerRouteImport.update({
   path: '/tools/thumbnail-designer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsStorytimeBuilderRoute = ToolsStorytimeBuilderRouteImport.update({
+  id: '/tools/storytime-builder',
+  path: '/tools/storytime-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsSponsorshipPitchRoute = ToolsSponsorshipPitchRouteImport.update({
   id: '/tools/sponsorship-pitch',
   path: '/tools/sponsorship-pitch',
@@ -69,6 +79,11 @@ const ToolsSponsorshipPitchRoute = ToolsSponsorshipPitchRouteImport.update({
 const ToolsSeriesNamerRoute = ToolsSeriesNamerRouteImport.update({
   id: '/tools/series-namer',
   path: '/tools/series-namer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsSeoDescriptionRoute = ToolsSeoDescriptionRouteImport.update({
+  id: '/tools/seo-description',
+  path: '/tools/seo-description',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsScriptWriterRoute = ToolsScriptWriterRouteImport.update({
@@ -87,9 +102,24 @@ const ToolsRepurposingAssistantRoute =
     path: '/tools/repurposing-assistant',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ToolsPinnedCommentRoute = ToolsPinnedCommentRouteImport.update({
+  id: '/tools/pinned-comment',
+  path: '/tools/pinned-comment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsPhotoCarouselRoute = ToolsPhotoCarouselRouteImport.update({
+  id: '/tools/photo-carousel',
+  path: '/tools/photo-carousel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsPacingCheckerRoute = ToolsPacingCheckerRouteImport.update({
   id: '/tools/pacing-checker',
   path: '/tools/pacing-checker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsNicheFinderRoute = ToolsNicheFinderRouteImport.update({
+  id: '/tools/niche-finder',
+  path: '/tools/niche-finder',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsLoopCtaBuilderRoute = ToolsLoopCtaBuilderRouteImport.update({
@@ -151,12 +181,17 @@ export interface FileRoutesByFullPath {
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
+  '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
+  '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/seo-description': typeof ToolsSeoDescriptionRoute
   '/tools/series-namer': typeof ToolsSeriesNamerRoute
   '/tools/sponsorship-pitch': typeof ToolsSponsorshipPitchRoute
+  '/tools/storytime-builder': typeof ToolsStorytimeBuilderRoute
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -174,12 +209,17 @@ export interface FileRoutesByTo {
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
+  '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
+  '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/seo-description': typeof ToolsSeoDescriptionRoute
   '/tools/series-namer': typeof ToolsSeriesNamerRoute
   '/tools/sponsorship-pitch': typeof ToolsSponsorshipPitchRoute
+  '/tools/storytime-builder': typeof ToolsStorytimeBuilderRoute
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -198,12 +238,17 @@ export interface FileRoutesById {
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
+  '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
+  '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
+  '/tools/seo-description': typeof ToolsSeoDescriptionRoute
   '/tools/series-namer': typeof ToolsSeriesNamerRoute
   '/tools/sponsorship-pitch': typeof ToolsSponsorshipPitchRoute
+  '/tools/storytime-builder': typeof ToolsStorytimeBuilderRoute
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
@@ -223,12 +268,17 @@ export interface FileRouteTypes {
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/loop-cta-builder'
+    | '/tools/niche-finder'
     | '/tools/pacing-checker'
+    | '/tools/photo-carousel'
+    | '/tools/pinned-comment'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
+    | '/tools/seo-description'
     | '/tools/series-namer'
     | '/tools/sponsorship-pitch'
+    | '/tools/storytime-builder'
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -246,12 +296,17 @@ export interface FileRouteTypes {
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/loop-cta-builder'
+    | '/tools/niche-finder'
     | '/tools/pacing-checker'
+    | '/tools/photo-carousel'
+    | '/tools/pinned-comment'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
+    | '/tools/seo-description'
     | '/tools/series-namer'
     | '/tools/sponsorship-pitch'
+    | '/tools/storytime-builder'
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -269,12 +324,17 @@ export interface FileRouteTypes {
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
     | '/tools/loop-cta-builder'
+    | '/tools/niche-finder'
     | '/tools/pacing-checker'
+    | '/tools/photo-carousel'
+    | '/tools/pinned-comment'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
+    | '/tools/seo-description'
     | '/tools/series-namer'
     | '/tools/sponsorship-pitch'
+    | '/tools/storytime-builder'
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
@@ -293,12 +353,17 @@ export interface RootRouteChildren {
   ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
   ToolsLoopCtaBuilderRoute: typeof ToolsLoopCtaBuilderRoute
+  ToolsNicheFinderRoute: typeof ToolsNicheFinderRoute
   ToolsPacingCheckerRoute: typeof ToolsPacingCheckerRoute
+  ToolsPhotoCarouselRoute: typeof ToolsPhotoCarouselRoute
+  ToolsPinnedCommentRoute: typeof ToolsPinnedCommentRoute
   ToolsRepurposingAssistantRoute: typeof ToolsRepurposingAssistantRoute
   ToolsRetentionDoctorRoute: typeof ToolsRetentionDoctorRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
+  ToolsSeoDescriptionRoute: typeof ToolsSeoDescriptionRoute
   ToolsSeriesNamerRoute: typeof ToolsSeriesNamerRoute
   ToolsSponsorshipPitchRoute: typeof ToolsSponsorshipPitchRoute
+  ToolsStorytimeBuilderRoute: typeof ToolsStorytimeBuilderRoute
   ToolsThumbnailDesignerRoute: typeof ToolsThumbnailDesignerRoute
   ToolsThumbnailTextRoute: typeof ToolsThumbnailTextRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
@@ -349,6 +414,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsThumbnailDesignerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/storytime-builder': {
+      id: '/tools/storytime-builder'
+      path: '/tools/storytime-builder'
+      fullPath: '/tools/storytime-builder'
+      preLoaderRoute: typeof ToolsStorytimeBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/sponsorship-pitch': {
       id: '/tools/sponsorship-pitch'
       path: '/tools/sponsorship-pitch'
@@ -361,6 +433,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/series-namer'
       fullPath: '/tools/series-namer'
       preLoaderRoute: typeof ToolsSeriesNamerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/seo-description': {
+      id: '/tools/seo-description'
+      path: '/tools/seo-description'
+      fullPath: '/tools/seo-description'
+      preLoaderRoute: typeof ToolsSeoDescriptionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/script-writer': {
@@ -384,11 +463,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsRepurposingAssistantRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/pinned-comment': {
+      id: '/tools/pinned-comment'
+      path: '/tools/pinned-comment'
+      fullPath: '/tools/pinned-comment'
+      preLoaderRoute: typeof ToolsPinnedCommentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/photo-carousel': {
+      id: '/tools/photo-carousel'
+      path: '/tools/photo-carousel'
+      fullPath: '/tools/photo-carousel'
+      preLoaderRoute: typeof ToolsPhotoCarouselRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/pacing-checker': {
       id: '/tools/pacing-checker'
       path: '/tools/pacing-checker'
       fullPath: '/tools/pacing-checker'
       preLoaderRoute: typeof ToolsPacingCheckerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/niche-finder': {
+      id: '/tools/niche-finder'
+      path: '/tools/niche-finder'
+      fullPath: '/tools/niche-finder'
+      preLoaderRoute: typeof ToolsNicheFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/loop-cta-builder': {
@@ -469,12 +569,17 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
   ToolsLoopCtaBuilderRoute: ToolsLoopCtaBuilderRoute,
+  ToolsNicheFinderRoute: ToolsNicheFinderRoute,
   ToolsPacingCheckerRoute: ToolsPacingCheckerRoute,
+  ToolsPhotoCarouselRoute: ToolsPhotoCarouselRoute,
+  ToolsPinnedCommentRoute: ToolsPinnedCommentRoute,
   ToolsRepurposingAssistantRoute: ToolsRepurposingAssistantRoute,
   ToolsRetentionDoctorRoute: ToolsRetentionDoctorRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
+  ToolsSeoDescriptionRoute: ToolsSeoDescriptionRoute,
   ToolsSeriesNamerRoute: ToolsSeriesNamerRoute,
   ToolsSponsorshipPitchRoute: ToolsSponsorshipPitchRoute,
+  ToolsStorytimeBuilderRoute: ToolsStorytimeBuilderRoute,
   ToolsThumbnailDesignerRoute: ToolsThumbnailDesignerRoute,
   ToolsThumbnailTextRoute: ToolsThumbnailTextRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
