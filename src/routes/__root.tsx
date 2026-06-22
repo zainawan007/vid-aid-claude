@@ -107,8 +107,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap",
       },
+      { rel: "preconnect", href: "https://pl29735583.effectivecpmnetwork.com" },
+      { rel: "preconnect", href: "https://pl29735556.effectivecpmnetwork.com" },
+      { rel: "dns-prefetch", href: "https://pl29735583.effectivecpmnetwork.com" },
+      { rel: "dns-prefetch", href: "https://pl29735556.effectivecpmnetwork.com" },
     ],
   }),
   shellComponent: RootShell,
