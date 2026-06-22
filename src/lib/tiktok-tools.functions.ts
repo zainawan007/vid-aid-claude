@@ -235,6 +235,71 @@ export const generateLoopCTA = createServerFn({ method: "POST" })
     return { result: text };
   });
 
+export const generateNiches = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok niche strategist. Suggest 5 underserved micro-niches a creator can own within a broader topic. For each: NICHE NAME, TARGET VIEWER (1 sentence), CONTENT ANGLE (what type of videos), COMPETITION (low/med/high), MONETIZATION PATH (brand fit/products/affiliate). Number 1-5.",
+      prompt: `Broad topic: ${data.topic}\nTone: ${data.tone}\nCurrent niche: ${data.niche}\n\nFind 5 micro-niches to own.`,
+    });
+    return { result: text };
+  });
+
+export const generateStorytime = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok storytime architect. Turn a topic into a 60-90 second story script using this arc: 1) HOOK (cliffhanger first line under 12 words), 2) SETUP (who/where/stakes, 2-3 short sentences), 3) ESCALATION (the build, 2-3 sentences), 4) TWIST (the unexpected turn), 5) PAYOFF (resolution + emotion), 6) CTA (invite a reaction). Label each beat. Keep voice conversational, sentences punchy.",
+      prompt: `Story seed: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nBuild the storytime arc.`,
+    });
+    return { result: text };
+  });
+
+export const generatePinnedComment = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok engagement strategist. Generate 5 pinned-comment ideas the creator can drop on their own video to spark replies and pump the algorithm. Mix: 1) provocative question, 2) hot take, 3) 'tell me your X', 4) admission/vulnerability, 5) tease part 2. Each under 100 chars. For each: TYPE, COMMENT, WHY IT WORKS.",
+      prompt: `Video topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nWrite 5 pinned-comment options.`,
+    });
+    return { result: text };
+  });
+
+export const generateCarousel = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok photo-carousel/slideshow expert. Build a 7-slide carousel post. For each slide output: SLIDE #, ON-IMAGE TEXT (2-8 words, scroll-stopping), VISUAL DESCRIPTION (what to photograph/screenshot), CAPTION ROLE (hook / build / payoff / cta). Slide 1 must be the curiosity hook, slide 7 must be the CTA. End with a SUGGESTED SOUND vibe and a 200-char post caption.",
+      prompt: `Topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nBuild a 7-slide TikTok photo carousel.`,
+    });
+    return { result: text };
+  });
+
+export const generateSEODescription = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok SEO specialist. Write a search-optimized video description under 300 chars that front-loads 2-3 high-intent keywords a viewer would actually type into TikTok search. Output 3 sections clearly labeled: 1) PRIMARY KEYWORDS (3 phrases people search), 2) SEO DESCRIPTION (the actual caption, keywords in first sentence, natural voice — not stuffed), 3) ALT-TEXT/ON-SCREEN KEYWORD (1 phrase to also say out loud in the first 3 seconds for TikTok's auto-transcribe).",
+      prompt: `Video topic: ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nWrite the SEO description.`,
+    });
+    return { result: text };
+  });
+
 export const generateSponsorshipPitch = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => BaseInput.parse(data))
   .handler(async ({ data }) => {

@@ -34,6 +34,11 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/tools/series-namer", changefreq: "weekly", priority: "0.9" },
           { path: "/tools/pacing-checker", changefreq: "weekly", priority: "0.9" },
           { path: "/tools/duet-stitch-finder", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/niche-finder", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/storytime-builder", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/pinned-comment", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/photo-carousel", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/seo-description", changefreq: "weekly", priority: "0.9" },
         ];
         const urls = entries
           .map(

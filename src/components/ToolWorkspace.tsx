@@ -31,6 +31,11 @@ import {
   generateSeriesNames,
   generatePacing,
   generateDuetStitch,
+  generateNiches,
+  generateStorytime,
+  generatePinnedComment,
+  generateCarousel,
+  generateSEODescription,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
@@ -58,6 +63,11 @@ import {
   ListOrdered,
   Timer,
   Users,
+  Compass,
+  BookOpen,
+  Pin,
+  GalleryHorizontal,
+  Search,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
@@ -82,6 +92,11 @@ export const TOOLS = [
   { id: "seriesNames", label: "Series Namer", icon: ListOrdered, description: "8 recurring series names", path: "/tools/series-namer" },
   { id: "pacing", label: "Pacing Checker", icon: Timer, description: "Script length vs seconds", path: "/tools/pacing-checker" },
   { id: "duetStitch", label: "Duet & Stitch Finder", icon: Users, description: "5 response angles", path: "/tools/duet-stitch-finder" },
+  { id: "niches", label: "Niche Finder", icon: Compass, description: "5 micro-niches to own", path: "/tools/niche-finder" },
+  { id: "storytime", label: "Storytime Builder", icon: BookOpen, description: "Hook → twist → payoff arc", path: "/tools/storytime-builder" },
+  { id: "pinned", label: "Pinned Comment", icon: Pin, description: "Pump replies + algo", path: "/tools/pinned-comment" },
+  { id: "carousel", label: "Photo Carousel", icon: GalleryHorizontal, description: "7-slide slideshow post", path: "/tools/photo-carousel" },
+  { id: "seo", label: "SEO Description", icon: Search, description: "Searchable TikTok caption", path: "/tools/seo-description" },
 ] as const;
 
 const TONES = ["Hype", "Funny", "Educational", "Aesthetic", "Storytelling"] as const;
@@ -181,6 +196,21 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
           break;
         case "duetStitch":
           res = await generateDuetStitch({ data: { topic, tone, niche } });
+          break;
+        case "niches":
+          res = await generateNiches({ data: { topic, tone, niche } });
+          break;
+        case "storytime":
+          res = await generateStorytime({ data: { topic, tone, niche } });
+          break;
+        case "pinned":
+          res = await generatePinnedComment({ data: { topic, tone, niche } });
+          break;
+        case "carousel":
+          res = await generateCarousel({ data: { topic, tone, niche } });
+          break;
+        case "seo":
+          res = await generateSEODescription({ data: { topic, tone, niche } });
           break;
       }
       setResult(res!.result);
