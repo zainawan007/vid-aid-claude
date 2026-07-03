@@ -76,6 +76,14 @@ import {
   Pin,
   GalleryHorizontal,
   Search,
+  RefreshCw,
+  Clock,
+  Film,
+  IdCard,
+  DollarSign,
+  Activity,
+  Shuffle,
+  UserPlus,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
