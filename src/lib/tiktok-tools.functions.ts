@@ -352,5 +352,107 @@ export const generateDuetStitch = createServerFn({ method: "POST" })
     return { result: text };
   });
 
+export const generateHookRewrite = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok hook doctor. Given an underperforming hook (in the Topic field), rewrite it 5 different ways. Each rewrite must be under 12 words. For each: NEW HOOK, WHAT CHANGED (1 line — e.g. 'Added curiosity gap in first 3 words', 'Front-loaded the payoff', 'Switched to contrarian frame'). Number 1-5.",
+      prompt: `Original hook (Topic): ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nRewrite this hook 5 ways with explanations.`,
+    });
+    return { result: text };
+  });
 
+export const generateBestTime = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok posting-time strategist. Topic = niche description, Tone = tone, Niche = 'timezone + audience region (US/EU/Asia/Global)'. Recommend 3 posting windows. For each: DAY, TIME WINDOW (in the given timezone), RATIONALE (2 sentences tying to niche audience behavior — commute, lunch, wind-down, weekend scroll). Rank strongest first. End with 1 line on what NOT to do.",
+      prompt: `Niche (Topic): ${data.topic}\nTone: ${data.tone}\nTimezone + audience region (Niche): ${data.niche}\n\nRecommend 3 posting windows.`,
+    });
+    return { result: text };
+  });
+
+export const generateBRoll = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok b-roll director. The Topic field IS the full script. Break it into script lines/beats (1 sentence each). For each, suggest 1-2 concrete b-roll or visual cutaway ideas. Output a clean markdown table with exactly two columns: | Script Line | Suggested Visual |. Keep visuals specific and shootable (props, angles, screen recordings, stock cues). No preamble.",
+      prompt: `Script (Topic):\n${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nGenerate the b-roll breakdown table.`,
+    });
+    return { result: text };
+  });
+
+export const generateMediaKit = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a creator media-kit writer. Topic = creator name + optional past brand collabs, Tone = content tone, Niche = 'niche + follower count + avg views + engagement rate'. Produce a clean one-page media kit with these labeled sections: NAME & TAGLINE, BIO (3-4 sentences), THE NUMBERS (bullets for followers / avg views / engagement rate), AUDIENCE (1 paragraph on who they are and why brands want them), PAST COLLABS (bullets — use the ones provided or write 'Available on request'), WHY WORK WITH ME (3 punchy bullets), CONTACT (CTA to reply/DM). Feels premium, no fluff.",
+      prompt: `Creator + past collabs (Topic): ${data.topic}\nTone: ${data.tone}\nNiche + stats (Niche): ${data.niche}\n\nBuild the media kit.`,
+    });
+    return { result: text };
+  });
+
+export const generateRateCard = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a creator-economy pricing analyst. Topic = 'followers, avg views, engagement rate' (parse the numbers). Tone = content tone. Niche = content type (single video / series / UGC / whitelisting). Output: 1) ESTIMATED PRICE RANGE in USD (low-high) for the selected content type, 2) HOW WE GOT THERE (bullets citing industry benchmarks: CPM per 1k views, engagement multiplier, usage-rights uplift for whitelisting, package discount for series, UGC flat-fee logic), 3) LEVERAGE TIPS (2 bullets on when to charge the high end). Be specific, not wishy-washy.",
+      prompt: `Stats (Topic): ${data.topic}\nTone: ${data.tone}\nContent type (Niche): ${data.niche}\n\nCalculate the rate.`,
+    });
+    return { result: text };
+  });
+
+export const generateTrendLifecycle = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok trend lifecycle analyst. Topic = the sound / hashtag / format name to evaluate. Output exactly: STATUS: <EMERGING | PEAKING | SATURATED | DECLINING>, WHY (2-3 sentences describing typical adoption signals for this stage — creator saturation, algo boost, comment sentiment), RECOMMENDATION (one of: 'jump on it now', 'use with a twist', 'avoid, find next trend') with a 1-sentence action, NEXT TREND SIGNAL (1 sentence on what to watch for next). Be decisive.",
+      prompt: `Trend to check (Topic): ${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nDiagnose the lifecycle stage.`,
+    });
+    return { result: text };
+  });
+
+export const generateCrossPlatform = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a cross-platform short-form adapter. The Topic field IS the TikTok script. Adapt it for 3 platforms. Output exactly 3 clearly labeled sections in this order:\n\n=== INSTAGRAM REELS ===\n<adapted script + PLATFORM NOTES: tone, pacing, aesthetic, on-screen text style, 5 suggested hashtags>\n\n=== YOUTUBE SHORTS ===\n<adapted script with stronger value framing + PLATFORM NOTES: retention-optimized opener, clearer subscribe CTA, title suggestion>\n\n=== TWITTER / X THREAD ===\n<numbered 5-8 tweet thread, tweet 1 = hook under 240 chars, final tweet = CTA + PLATFORM NOTES: line-break rhythm, no hashtags-in-body>\n\nNo preamble. Keep each platform section self-contained.",
+      prompt: `TikTok script (Topic):\n${data.topic}\nTone: ${data.tone}\nNiche: ${data.niche}\n\nAdapt across platforms.`,
+    });
+    return { result: text };
+  });
+
+export const generateCollabIdeas = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => BaseInput.parse(data))
+  .handler(async ({ data }) => {
+    const gateway = getGateway();
+    const { text } = await generateText({
+      model: gateway(MODEL),
+      system:
+        "You are a TikTok collab matchmaker. Topic = your niche, Tone = content tone, Niche = 'follower range + collab goal (cross-promotion / duet challenge / joint series)'. Suggest 5 creator ARCHETYPES to collab with (describe the type of creator — not real handles). For each: ARCHETYPE (1-line description), WHY THE PAIRING WORKS (audience overlap + contrast), SUGGESTED COLLAB FORMAT (concrete video idea matching the collab goal). Number 1-5.",
+      prompt: `Your niche (Topic): ${data.topic}\nTone: ${data.tone}\nFollower range + goal (Niche): ${data.niche}\n\nSuggest 5 collab archetypes.`,
+    });
+    return { result: text };
+  });
 
