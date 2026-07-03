@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
+import { Route as ToolsTrendLifecycleCheckerRouteImport } from './routes/tools.trend-lifecycle-checker'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
 import { Route as ToolsThumbnailTextRouteImport } from './routes/tools.thumbnail-text'
 import { Route as ToolsThumbnailDesignerRouteImport } from './routes/tools.thumbnail-designer'
@@ -56,6 +57,12 @@ const ToolsVideoIdeasRoute = ToolsVideoIdeasRouteImport.update({
   path: '/tools/video-ideas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsTrendLifecycleCheckerRoute =
+  ToolsTrendLifecycleCheckerRouteImport.update({
+    id: '/tools/trend-lifecycle-checker',
+    path: '/tools/trend-lifecycle-checker',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsTrendAnglesRoute = ToolsTrendAnglesRouteImport.update({
   id: '/tools/trend-angles',
   path: '/tools/trend-angles',
@@ -230,6 +237,7 @@ export interface FileRoutesByFullPath {
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/trend-lifecycle-checker': typeof ToolsTrendLifecycleCheckerRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRoutesByTo {
@@ -263,6 +271,7 @@ export interface FileRoutesByTo {
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/trend-lifecycle-checker': typeof ToolsTrendLifecycleCheckerRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRoutesById {
@@ -297,6 +306,7 @@ export interface FileRoutesById {
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/trend-lifecycle-checker': typeof ToolsTrendLifecycleCheckerRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRouteTypes {
@@ -332,6 +342,7 @@ export interface FileRouteTypes {
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
+    | '/tools/trend-lifecycle-checker'
     | '/tools/video-ideas'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -365,6 +376,7 @@ export interface FileRouteTypes {
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
+    | '/tools/trend-lifecycle-checker'
     | '/tools/video-ideas'
   id:
     | '__root__'
@@ -398,6 +410,7 @@ export interface FileRouteTypes {
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
+    | '/tools/trend-lifecycle-checker'
     | '/tools/video-ideas'
   fileRoutesById: FileRoutesById
 }
@@ -432,6 +445,7 @@ export interface RootRouteChildren {
   ToolsThumbnailDesignerRoute: typeof ToolsThumbnailDesignerRoute
   ToolsThumbnailTextRoute: typeof ToolsThumbnailTextRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
+  ToolsTrendLifecycleCheckerRoute: typeof ToolsTrendLifecycleCheckerRoute
   ToolsVideoIdeasRoute: typeof ToolsVideoIdeasRoute
 }
 
@@ -456,6 +470,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/video-ideas'
       fullPath: '/tools/video-ideas'
       preLoaderRoute: typeof ToolsVideoIdeasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/trend-lifecycle-checker': {
+      id: '/tools/trend-lifecycle-checker'
+      path: '/tools/trend-lifecycle-checker'
+      fullPath: '/tools/trend-lifecycle-checker'
+      preLoaderRoute: typeof ToolsTrendLifecycleCheckerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/trend-angles': {
@@ -688,6 +709,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsThumbnailDesignerRoute: ToolsThumbnailDesignerRoute,
   ToolsThumbnailTextRoute: ToolsThumbnailTextRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
+  ToolsTrendLifecycleCheckerRoute: ToolsTrendLifecycleCheckerRoute,
   ToolsVideoIdeasRoute: ToolsVideoIdeasRoute,
 }
 export const routeTree = rootRouteImport
