@@ -35,6 +35,7 @@ import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-gene
 import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
 import { Route as ToolsDuetStitchFinderRouteImport } from './routes/tools.duet-stitch-finder'
+import { Route as ToolsCrossPlatformAdapterRouteImport } from './routes/tools.cross-platform-adapter'
 import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content-calendar'
 import { Route as ToolsCommentReplyGeneratorRouteImport } from './routes/tools.comment-reply-generator'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
@@ -174,6 +175,12 @@ const ToolsDuetStitchFinderRoute = ToolsDuetStitchFinderRouteImport.update({
   path: '/tools/duet-stitch-finder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsCrossPlatformAdapterRoute =
+  ToolsCrossPlatformAdapterRouteImport.update({
+    id: '/tools/cross-platform-adapter',
+    path: '/tools/cross-platform-adapter',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsContentCalendarRoute = ToolsContentCalendarRouteImport.update({
   id: '/tools/content-calendar',
   path: '/tools/content-calendar',
@@ -215,6 +222,7 @@ export interface FileRoutesByFullPath {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
   '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
@@ -249,6 +257,7 @@ export interface FileRoutesByTo {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
   '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
@@ -284,6 +293,7 @@ export interface FileRoutesById {
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
   '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
@@ -320,6 +330,7 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/cross-platform-adapter'
     | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
@@ -354,6 +365,7 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/cross-platform-adapter'
     | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
@@ -388,6 +400,7 @@ export interface FileRouteTypes {
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/cross-platform-adapter'
     | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
@@ -423,6 +436,7 @@ export interface RootRouteChildren {
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
   ToolsCommentReplyGeneratorRoute: typeof ToolsCommentReplyGeneratorRoute
   ToolsContentCalendarRoute: typeof ToolsContentCalendarRoute
+  ToolsCrossPlatformAdapterRoute: typeof ToolsCrossPlatformAdapterRoute
   ToolsDuetStitchFinderRoute: typeof ToolsDuetStitchFinderRoute
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
   ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
@@ -633,6 +647,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsDuetStitchFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/cross-platform-adapter': {
+      id: '/tools/cross-platform-adapter'
+      path: '/tools/cross-platform-adapter'
+      fullPath: '/tools/cross-platform-adapter'
+      preLoaderRoute: typeof ToolsCrossPlatformAdapterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/content-calendar': {
       id: '/tools/content-calendar'
       path: '/tools/content-calendar'
@@ -687,6 +708,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
   ToolsCommentReplyGeneratorRoute: ToolsCommentReplyGeneratorRoute,
   ToolsContentCalendarRoute: ToolsContentCalendarRoute,
+  ToolsCrossPlatformAdapterRoute: ToolsCrossPlatformAdapterRoute,
   ToolsDuetStitchFinderRoute: ToolsDuetStitchFinderRoute,
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
   ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
