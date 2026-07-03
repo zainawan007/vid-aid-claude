@@ -27,6 +27,7 @@ import { Route as ToolsPhotoCarouselRouteImport } from './routes/tools.photo-car
 import { Route as ToolsPacingCheckerRouteImport } from './routes/tools.pacing-checker'
 import { Route as ToolsNicheFinderRouteImport } from './routes/tools.niche-finder'
 import { Route as ToolsLoopCtaBuilderRouteImport } from './routes/tools.loop-cta-builder'
+import { Route as ToolsHookRewriterRouteImport } from './routes/tools.hook-rewriter'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
 import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
@@ -127,6 +128,11 @@ const ToolsLoopCtaBuilderRoute = ToolsLoopCtaBuilderRouteImport.update({
   path: '/tools/loop-cta-builder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsHookRewriterRoute = ToolsHookRewriterRouteImport.update({
+  id: '/tools/hook-rewriter',
+  path: '/tools/hook-rewriter',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsHookGeneratorRoute = ToolsHookGeneratorRouteImport.update({
   id: '/tools/hook-generator',
   path: '/tools/hook-generator',
@@ -180,6 +186,7 @@ export interface FileRoutesByFullPath {
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
@@ -208,6 +215,7 @@ export interface FileRoutesByTo {
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
@@ -237,6 +245,7 @@ export interface FileRoutesById {
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
@@ -267,6 +276,7 @@ export interface FileRouteTypes {
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
@@ -295,6 +305,7 @@ export interface FileRouteTypes {
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
@@ -323,6 +334,7 @@ export interface FileRouteTypes {
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
@@ -352,6 +364,7 @@ export interface RootRouteChildren {
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
   ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
+  ToolsHookRewriterRoute: typeof ToolsHookRewriterRoute
   ToolsLoopCtaBuilderRoute: typeof ToolsLoopCtaBuilderRoute
   ToolsNicheFinderRoute: typeof ToolsNicheFinderRoute
   ToolsPacingCheckerRoute: typeof ToolsPacingCheckerRoute
@@ -498,6 +511,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsLoopCtaBuilderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/hook-rewriter': {
+      id: '/tools/hook-rewriter'
+      path: '/tools/hook-rewriter'
+      fullPath: '/tools/hook-rewriter'
+      preLoaderRoute: typeof ToolsHookRewriterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/hook-generator': {
       id: '/tools/hook-generator'
       path: '/tools/hook-generator'
@@ -568,6 +588,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
   ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
+  ToolsHookRewriterRoute: ToolsHookRewriterRoute,
   ToolsLoopCtaBuilderRoute: ToolsLoopCtaBuilderRoute,
   ToolsNicheFinderRoute: ToolsNicheFinderRoute,
   ToolsPacingCheckerRoute: ToolsPacingCheckerRoute,
