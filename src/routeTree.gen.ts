@@ -22,6 +22,7 @@ import { Route as ToolsSeoDescriptionRouteImport } from './routes/tools.seo-desc
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
 import { Route as ToolsRetentionDoctorRouteImport } from './routes/tools.retention-doctor'
 import { Route as ToolsRepurposingAssistantRouteImport } from './routes/tools.repurposing-assistant'
+import { Route as ToolsRateCardCalculatorRouteImport } from './routes/tools.rate-card-calculator'
 import { Route as ToolsPinnedCommentRouteImport } from './routes/tools.pinned-comment'
 import { Route as ToolsPhotoCarouselRouteImport } from './routes/tools.photo-carousel'
 import { Route as ToolsPacingCheckerRouteImport } from './routes/tools.pacing-checker'
@@ -106,6 +107,11 @@ const ToolsRepurposingAssistantRoute =
     path: '/tools/repurposing-assistant',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ToolsRateCardCalculatorRoute = ToolsRateCardCalculatorRouteImport.update({
+  id: '/tools/rate-card-calculator',
+  path: '/tools/rate-card-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsPinnedCommentRoute = ToolsPinnedCommentRouteImport.update({
   id: '/tools/pinned-comment',
   path: '/tools/pinned-comment',
@@ -213,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
   '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
+  '/tools/rate-card-calculator': typeof ToolsRateCardCalculatorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
@@ -245,6 +252,7 @@ export interface FileRoutesByTo {
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
   '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
+  '/tools/rate-card-calculator': typeof ToolsRateCardCalculatorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
@@ -278,6 +286,7 @@ export interface FileRoutesById {
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
   '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
+  '/tools/rate-card-calculator': typeof ToolsRateCardCalculatorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
@@ -312,6 +321,7 @@ export interface FileRouteTypes {
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
     | '/tools/pinned-comment'
+    | '/tools/rate-card-calculator'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
@@ -344,6 +354,7 @@ export interface FileRouteTypes {
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
     | '/tools/pinned-comment'
+    | '/tools/rate-card-calculator'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
@@ -376,6 +387,7 @@ export interface FileRouteTypes {
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
     | '/tools/pinned-comment'
+    | '/tools/rate-card-calculator'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
@@ -409,6 +421,7 @@ export interface RootRouteChildren {
   ToolsPacingCheckerRoute: typeof ToolsPacingCheckerRoute
   ToolsPhotoCarouselRoute: typeof ToolsPhotoCarouselRoute
   ToolsPinnedCommentRoute: typeof ToolsPinnedCommentRoute
+  ToolsRateCardCalculatorRoute: typeof ToolsRateCardCalculatorRoute
   ToolsRepurposingAssistantRoute: typeof ToolsRepurposingAssistantRoute
   ToolsRetentionDoctorRoute: typeof ToolsRetentionDoctorRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
@@ -513,6 +526,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/repurposing-assistant'
       fullPath: '/tools/repurposing-assistant'
       preLoaderRoute: typeof ToolsRepurposingAssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/rate-card-calculator': {
+      id: '/tools/rate-card-calculator'
+      path: '/tools/rate-card-calculator'
+      fullPath: '/tools/rate-card-calculator'
+      preLoaderRoute: typeof ToolsRateCardCalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/pinned-comment': {
@@ -657,6 +677,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsPacingCheckerRoute: ToolsPacingCheckerRoute,
   ToolsPhotoCarouselRoute: ToolsPhotoCarouselRoute,
   ToolsPinnedCommentRoute: ToolsPinnedCommentRoute,
+  ToolsRateCardCalculatorRoute: ToolsRateCardCalculatorRoute,
   ToolsRepurposingAssistantRoute: ToolsRepurposingAssistantRoute,
   ToolsRetentionDoctorRoute: ToolsRetentionDoctorRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
