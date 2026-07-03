@@ -36,6 +36,7 @@ import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content
 import { Route as ToolsCommentReplyGeneratorRouteImport } from './routes/tools.comment-reply-generator'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
 import { Route as ToolsBioOptimizerRouteImport } from './routes/tools.bio-optimizer'
+import { Route as ToolsBestTimeToPostRouteImport } from './routes/tools.best-time-to-post'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -174,10 +175,16 @@ const ToolsBioOptimizerRoute = ToolsBioOptimizerRouteImport.update({
   path: '/tools/bio-optimizer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsBestTimeToPostRoute = ToolsBestTimeToPostRouteImport.update({
+  id: '/tools/best-time-to-post',
+  path: '/tools/best-time-to-post',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
@@ -207,6 +214,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
@@ -237,6 +245,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
@@ -268,6 +277,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/sitemap.xml'
+    | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
@@ -297,6 +307,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/sitemap.xml'
+    | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
@@ -326,6 +337,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/sitemap.xml'
+    | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
     | '/tools/comment-reply-generator'
@@ -356,6 +368,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ToolsBestTimeToPostRoute: typeof ToolsBestTimeToPostRoute
   ToolsBioOptimizerRoute: typeof ToolsBioOptimizerRoute
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
   ToolsCommentReplyGeneratorRoute: typeof ToolsCommentReplyGeneratorRoute
@@ -574,12 +587,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsBioOptimizerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/best-time-to-post': {
+      id: '/tools/best-time-to-post'
+      path: '/tools/best-time-to-post'
+      fullPath: '/tools/best-time-to-post'
+      preLoaderRoute: typeof ToolsBestTimeToPostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ToolsBestTimeToPostRoute: ToolsBestTimeToPostRoute,
   ToolsBioOptimizerRoute: ToolsBioOptimizerRoute,
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
   ToolsCommentReplyGeneratorRoute: ToolsCommentReplyGeneratorRoute,
