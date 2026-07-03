@@ -36,6 +36,14 @@ import {
   generatePinnedComment,
   generateCarousel,
   generateSEODescription,
+  generateHookRewrite,
+  generateBestTime,
+  generateBRoll,
+  generateMediaKit,
+  generateRateCard,
+  generateTrendLifecycle,
+  generateCrossPlatform,
+  generateCollabIdeas,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
