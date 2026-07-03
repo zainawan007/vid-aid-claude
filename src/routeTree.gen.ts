@@ -37,6 +37,7 @@ import { Route as ToolsCommentReplyGeneratorRouteImport } from './routes/tools.c
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
 import { Route as ToolsBioOptimizerRouteImport } from './routes/tools.bio-optimizer'
 import { Route as ToolsBestTimeToPostRouteImport } from './routes/tools.best-time-to-post'
+import { Route as ToolsBRollSuggesterRouteImport } from './routes/tools.b-roll-suggester'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -180,10 +181,16 @@ const ToolsBestTimeToPostRoute = ToolsBestTimeToPostRouteImport.update({
   path: '/tools/best-time-to-post',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsBRollSuggesterRoute = ToolsBRollSuggesterRouteImport.update({
+  id: '/tools/b-roll-suggester',
+  path: '/tools/b-roll-suggester',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/b-roll-suggester': typeof ToolsBRollSuggesterRoute
   '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
@@ -214,6 +221,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/b-roll-suggester': typeof ToolsBRollSuggesterRoute
   '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
@@ -245,6 +253,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/b-roll-suggester': typeof ToolsBRollSuggesterRoute
   '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
@@ -277,6 +286,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/sitemap.xml'
+    | '/tools/b-roll-suggester'
     | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
@@ -307,6 +317,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/sitemap.xml'
+    | '/tools/b-roll-suggester'
     | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
@@ -337,6 +348,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/sitemap.xml'
+    | '/tools/b-roll-suggester'
     | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
@@ -368,6 +380,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ToolsBRollSuggesterRoute: typeof ToolsBRollSuggesterRoute
   ToolsBestTimeToPostRoute: typeof ToolsBestTimeToPostRoute
   ToolsBioOptimizerRoute: typeof ToolsBioOptimizerRoute
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
@@ -594,12 +607,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsBestTimeToPostRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/b-roll-suggester': {
+      id: '/tools/b-roll-suggester'
+      path: '/tools/b-roll-suggester'
+      fullPath: '/tools/b-roll-suggester'
+      preLoaderRoute: typeof ToolsBRollSuggesterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ToolsBRollSuggesterRoute: ToolsBRollSuggesterRoute,
   ToolsBestTimeToPostRoute: ToolsBestTimeToPostRoute,
   ToolsBioOptimizerRoute: ToolsBioOptimizerRoute,
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
