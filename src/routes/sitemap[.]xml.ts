@@ -39,6 +39,14 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/tools/pinned-comment", changefreq: "weekly", priority: "0.9" },
           { path: "/tools/photo-carousel", changefreq: "weekly", priority: "0.9" },
           { path: "/tools/seo-description", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/hook-rewriter", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/best-time-to-post", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/b-roll-suggester", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/media-kit-builder", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/rate-card-calculator", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/trend-lifecycle-checker", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/cross-platform-adapter", changefreq: "weekly", priority: "0.9" },
+          { path: "/tools/collab-finder", changefreq: "weekly", priority: "0.9" },
         ];
         const urls = entries
           .map(

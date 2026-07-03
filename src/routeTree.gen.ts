@@ -38,6 +38,7 @@ import { Route as ToolsDuetStitchFinderRouteImport } from './routes/tools.duet-s
 import { Route as ToolsCrossPlatformAdapterRouteImport } from './routes/tools.cross-platform-adapter'
 import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content-calendar'
 import { Route as ToolsCommentReplyGeneratorRouteImport } from './routes/tools.comment-reply-generator'
+import { Route as ToolsCollabFinderRouteImport } from './routes/tools.collab-finder'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
 import { Route as ToolsBioOptimizerRouteImport } from './routes/tools.bio-optimizer'
 import { Route as ToolsBestTimeToPostRouteImport } from './routes/tools.best-time-to-post'
@@ -192,6 +193,11 @@ const ToolsCommentReplyGeneratorRoute =
     path: '/tools/comment-reply-generator',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ToolsCollabFinderRoute = ToolsCollabFinderRouteImport.update({
+  id: '/tools/collab-finder',
+  path: '/tools/collab-finder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsCaptionCrafterRoute = ToolsCaptionCrafterRouteImport.update({
   id: '/tools/caption-crafter',
   path: '/tools/caption-crafter',
@@ -220,6 +226,7 @@ export interface FileRoutesByFullPath {
   '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/collab-finder': typeof ToolsCollabFinderRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
@@ -255,6 +262,7 @@ export interface FileRoutesByTo {
   '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/collab-finder': typeof ToolsCollabFinderRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
@@ -291,6 +299,7 @@ export interface FileRoutesById {
   '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/collab-finder': typeof ToolsCollabFinderRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
   '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
@@ -328,6 +337,7 @@ export interface FileRouteTypes {
     | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/collab-finder'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/cross-platform-adapter'
@@ -363,6 +373,7 @@ export interface FileRouteTypes {
     | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/collab-finder'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/cross-platform-adapter'
@@ -398,6 +409,7 @@ export interface FileRouteTypes {
     | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/collab-finder'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
     | '/tools/cross-platform-adapter'
@@ -434,6 +446,7 @@ export interface RootRouteChildren {
   ToolsBestTimeToPostRoute: typeof ToolsBestTimeToPostRoute
   ToolsBioOptimizerRoute: typeof ToolsBioOptimizerRoute
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
+  ToolsCollabFinderRoute: typeof ToolsCollabFinderRoute
   ToolsCommentReplyGeneratorRoute: typeof ToolsCommentReplyGeneratorRoute
   ToolsContentCalendarRoute: typeof ToolsContentCalendarRoute
   ToolsCrossPlatformAdapterRoute: typeof ToolsCrossPlatformAdapterRoute
@@ -668,6 +681,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsCommentReplyGeneratorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/collab-finder': {
+      id: '/tools/collab-finder'
+      path: '/tools/collab-finder'
+      fullPath: '/tools/collab-finder'
+      preLoaderRoute: typeof ToolsCollabFinderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/caption-crafter': {
       id: '/tools/caption-crafter'
       path: '/tools/caption-crafter'
@@ -706,6 +726,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsBestTimeToPostRoute: ToolsBestTimeToPostRoute,
   ToolsBioOptimizerRoute: ToolsBioOptimizerRoute,
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
+  ToolsCollabFinderRoute: ToolsCollabFinderRoute,
   ToolsCommentReplyGeneratorRoute: ToolsCommentReplyGeneratorRoute,
   ToolsContentCalendarRoute: ToolsContentCalendarRoute,
   ToolsCrossPlatformAdapterRoute: ToolsCrossPlatformAdapterRoute,
