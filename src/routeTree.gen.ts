@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsVideoIdeasRouteImport } from './routes/tools.video-ideas'
+import { Route as ToolsTrendLifecycleCheckerRouteImport } from './routes/tools.trend-lifecycle-checker'
 import { Route as ToolsTrendAnglesRouteImport } from './routes/tools.trend-angles'
 import { Route as ToolsThumbnailTextRouteImport } from './routes/tools.thumbnail-text'
 import { Route as ToolsThumbnailDesignerRouteImport } from './routes/tools.thumbnail-designer'
@@ -22,19 +23,26 @@ import { Route as ToolsSeoDescriptionRouteImport } from './routes/tools.seo-desc
 import { Route as ToolsScriptWriterRouteImport } from './routes/tools.script-writer'
 import { Route as ToolsRetentionDoctorRouteImport } from './routes/tools.retention-doctor'
 import { Route as ToolsRepurposingAssistantRouteImport } from './routes/tools.repurposing-assistant'
+import { Route as ToolsRateCardCalculatorRouteImport } from './routes/tools.rate-card-calculator'
 import { Route as ToolsPinnedCommentRouteImport } from './routes/tools.pinned-comment'
 import { Route as ToolsPhotoCarouselRouteImport } from './routes/tools.photo-carousel'
 import { Route as ToolsPacingCheckerRouteImport } from './routes/tools.pacing-checker'
 import { Route as ToolsNicheFinderRouteImport } from './routes/tools.niche-finder'
+import { Route as ToolsMediaKitBuilderRouteImport } from './routes/tools.media-kit-builder'
 import { Route as ToolsLoopCtaBuilderRouteImport } from './routes/tools.loop-cta-builder'
+import { Route as ToolsHookRewriterRouteImport } from './routes/tools.hook-rewriter'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
 import { Route as ToolsHookAbTesterRouteImport } from './routes/tools.hook-ab-tester'
 import { Route as ToolsHashtagPackRouteImport } from './routes/tools.hashtag-pack'
 import { Route as ToolsDuetStitchFinderRouteImport } from './routes/tools.duet-stitch-finder'
+import { Route as ToolsCrossPlatformAdapterRouteImport } from './routes/tools.cross-platform-adapter'
 import { Route as ToolsContentCalendarRouteImport } from './routes/tools.content-calendar'
 import { Route as ToolsCommentReplyGeneratorRouteImport } from './routes/tools.comment-reply-generator'
+import { Route as ToolsCollabFinderRouteImport } from './routes/tools.collab-finder'
 import { Route as ToolsCaptionCrafterRouteImport } from './routes/tools.caption-crafter'
 import { Route as ToolsBioOptimizerRouteImport } from './routes/tools.bio-optimizer'
+import { Route as ToolsBestTimeToPostRouteImport } from './routes/tools.best-time-to-post'
+import { Route as ToolsBRollSuggesterRouteImport } from './routes/tools.b-roll-suggester'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -51,6 +59,12 @@ const ToolsVideoIdeasRoute = ToolsVideoIdeasRouteImport.update({
   path: '/tools/video-ideas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsTrendLifecycleCheckerRoute =
+  ToolsTrendLifecycleCheckerRouteImport.update({
+    id: '/tools/trend-lifecycle-checker',
+    path: '/tools/trend-lifecycle-checker',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsTrendAnglesRoute = ToolsTrendAnglesRouteImport.update({
   id: '/tools/trend-angles',
   path: '/tools/trend-angles',
@@ -102,6 +116,11 @@ const ToolsRepurposingAssistantRoute =
     path: '/tools/repurposing-assistant',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ToolsRateCardCalculatorRoute = ToolsRateCardCalculatorRouteImport.update({
+  id: '/tools/rate-card-calculator',
+  path: '/tools/rate-card-calculator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsPinnedCommentRoute = ToolsPinnedCommentRouteImport.update({
   id: '/tools/pinned-comment',
   path: '/tools/pinned-comment',
@@ -122,9 +141,19 @@ const ToolsNicheFinderRoute = ToolsNicheFinderRouteImport.update({
   path: '/tools/niche-finder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsMediaKitBuilderRoute = ToolsMediaKitBuilderRouteImport.update({
+  id: '/tools/media-kit-builder',
+  path: '/tools/media-kit-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsLoopCtaBuilderRoute = ToolsLoopCtaBuilderRouteImport.update({
   id: '/tools/loop-cta-builder',
   path: '/tools/loop-cta-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsHookRewriterRoute = ToolsHookRewriterRouteImport.update({
+  id: '/tools/hook-rewriter',
+  path: '/tools/hook-rewriter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToolsHookGeneratorRoute = ToolsHookGeneratorRouteImport.update({
@@ -147,6 +176,12 @@ const ToolsDuetStitchFinderRoute = ToolsDuetStitchFinderRouteImport.update({
   path: '/tools/duet-stitch-finder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsCrossPlatformAdapterRoute =
+  ToolsCrossPlatformAdapterRouteImport.update({
+    id: '/tools/cross-platform-adapter',
+    path: '/tools/cross-platform-adapter',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ToolsContentCalendarRoute = ToolsContentCalendarRouteImport.update({
   id: '/tools/content-calendar',
   path: '/tools/content-calendar',
@@ -158,6 +193,11 @@ const ToolsCommentReplyGeneratorRoute =
     path: '/tools/comment-reply-generator',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ToolsCollabFinderRoute = ToolsCollabFinderRouteImport.update({
+  id: '/tools/collab-finder',
+  path: '/tools/collab-finder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsCaptionCrafterRoute = ToolsCaptionCrafterRouteImport.update({
   id: '/tools/caption-crafter',
   path: '/tools/caption-crafter',
@@ -168,23 +208,40 @@ const ToolsBioOptimizerRoute = ToolsBioOptimizerRouteImport.update({
   path: '/tools/bio-optimizer',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsBestTimeToPostRoute = ToolsBestTimeToPostRouteImport.update({
+  id: '/tools/best-time-to-post',
+  path: '/tools/best-time-to-post',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsBRollSuggesterRoute = ToolsBRollSuggesterRouteImport.update({
+  id: '/tools/b-roll-suggester',
+  path: '/tools/b-roll-suggester',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/b-roll-suggester': typeof ToolsBRollSuggesterRoute
+  '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/collab-finder': typeof ToolsCollabFinderRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
   '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/media-kit-builder': typeof ToolsMediaKitBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
   '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
+  '/tools/rate-card-calculator': typeof ToolsRateCardCalculatorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
@@ -195,24 +252,32 @@ export interface FileRoutesByFullPath {
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/trend-lifecycle-checker': typeof ToolsTrendLifecycleCheckerRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/b-roll-suggester': typeof ToolsBRollSuggesterRoute
+  '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/collab-finder': typeof ToolsCollabFinderRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
   '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/media-kit-builder': typeof ToolsMediaKitBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
   '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
+  '/tools/rate-card-calculator': typeof ToolsRateCardCalculatorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
@@ -223,25 +288,33 @@ export interface FileRoutesByTo {
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/trend-lifecycle-checker': typeof ToolsTrendLifecycleCheckerRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/tools/b-roll-suggester': typeof ToolsBRollSuggesterRoute
+  '/tools/best-time-to-post': typeof ToolsBestTimeToPostRoute
   '/tools/bio-optimizer': typeof ToolsBioOptimizerRoute
   '/tools/caption-crafter': typeof ToolsCaptionCrafterRoute
+  '/tools/collab-finder': typeof ToolsCollabFinderRoute
   '/tools/comment-reply-generator': typeof ToolsCommentReplyGeneratorRoute
   '/tools/content-calendar': typeof ToolsContentCalendarRoute
+  '/tools/cross-platform-adapter': typeof ToolsCrossPlatformAdapterRoute
   '/tools/duet-stitch-finder': typeof ToolsDuetStitchFinderRoute
   '/tools/hashtag-pack': typeof ToolsHashtagPackRoute
   '/tools/hook-ab-tester': typeof ToolsHookAbTesterRoute
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
+  '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/media-kit-builder': typeof ToolsMediaKitBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
   '/tools/pinned-comment': typeof ToolsPinnedCommentRoute
+  '/tools/rate-card-calculator': typeof ToolsRateCardCalculatorRoute
   '/tools/repurposing-assistant': typeof ToolsRepurposingAssistantRoute
   '/tools/retention-doctor': typeof ToolsRetentionDoctorRoute
   '/tools/script-writer': typeof ToolsScriptWriterRoute
@@ -252,6 +325,7 @@ export interface FileRoutesById {
   '/tools/thumbnail-designer': typeof ToolsThumbnailDesignerRoute
   '/tools/thumbnail-text': typeof ToolsThumbnailTextRoute
   '/tools/trend-angles': typeof ToolsTrendAnglesRoute
+  '/tools/trend-lifecycle-checker': typeof ToolsTrendLifecycleCheckerRoute
   '/tools/video-ideas': typeof ToolsVideoIdeasRoute
 }
 export interface FileRouteTypes {
@@ -259,19 +333,26 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/sitemap.xml'
+    | '/tools/b-roll-suggester'
+    | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/collab-finder'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/cross-platform-adapter'
     | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
+    | '/tools/media-kit-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
     | '/tools/pinned-comment'
+    | '/tools/rate-card-calculator'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
@@ -282,24 +363,32 @@ export interface FileRouteTypes {
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
+    | '/tools/trend-lifecycle-checker'
     | '/tools/video-ideas'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/sitemap.xml'
+    | '/tools/b-roll-suggester'
+    | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/collab-finder'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/cross-platform-adapter'
     | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
+    | '/tools/media-kit-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
     | '/tools/pinned-comment'
+    | '/tools/rate-card-calculator'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
@@ -310,24 +399,32 @@ export interface FileRouteTypes {
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
+    | '/tools/trend-lifecycle-checker'
     | '/tools/video-ideas'
   id:
     | '__root__'
     | '/'
     | '/sitemap.xml'
+    | '/tools/b-roll-suggester'
+    | '/tools/best-time-to-post'
     | '/tools/bio-optimizer'
     | '/tools/caption-crafter'
+    | '/tools/collab-finder'
     | '/tools/comment-reply-generator'
     | '/tools/content-calendar'
+    | '/tools/cross-platform-adapter'
     | '/tools/duet-stitch-finder'
     | '/tools/hashtag-pack'
     | '/tools/hook-ab-tester'
     | '/tools/hook-generator'
+    | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
+    | '/tools/media-kit-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
     | '/tools/pinned-comment'
+    | '/tools/rate-card-calculator'
     | '/tools/repurposing-assistant'
     | '/tools/retention-doctor'
     | '/tools/script-writer'
@@ -338,25 +435,33 @@ export interface FileRouteTypes {
     | '/tools/thumbnail-designer'
     | '/tools/thumbnail-text'
     | '/tools/trend-angles'
+    | '/tools/trend-lifecycle-checker'
     | '/tools/video-ideas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ToolsBRollSuggesterRoute: typeof ToolsBRollSuggesterRoute
+  ToolsBestTimeToPostRoute: typeof ToolsBestTimeToPostRoute
   ToolsBioOptimizerRoute: typeof ToolsBioOptimizerRoute
   ToolsCaptionCrafterRoute: typeof ToolsCaptionCrafterRoute
+  ToolsCollabFinderRoute: typeof ToolsCollabFinderRoute
   ToolsCommentReplyGeneratorRoute: typeof ToolsCommentReplyGeneratorRoute
   ToolsContentCalendarRoute: typeof ToolsContentCalendarRoute
+  ToolsCrossPlatformAdapterRoute: typeof ToolsCrossPlatformAdapterRoute
   ToolsDuetStitchFinderRoute: typeof ToolsDuetStitchFinderRoute
   ToolsHashtagPackRoute: typeof ToolsHashtagPackRoute
   ToolsHookAbTesterRoute: typeof ToolsHookAbTesterRoute
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
+  ToolsHookRewriterRoute: typeof ToolsHookRewriterRoute
   ToolsLoopCtaBuilderRoute: typeof ToolsLoopCtaBuilderRoute
+  ToolsMediaKitBuilderRoute: typeof ToolsMediaKitBuilderRoute
   ToolsNicheFinderRoute: typeof ToolsNicheFinderRoute
   ToolsPacingCheckerRoute: typeof ToolsPacingCheckerRoute
   ToolsPhotoCarouselRoute: typeof ToolsPhotoCarouselRoute
   ToolsPinnedCommentRoute: typeof ToolsPinnedCommentRoute
+  ToolsRateCardCalculatorRoute: typeof ToolsRateCardCalculatorRoute
   ToolsRepurposingAssistantRoute: typeof ToolsRepurposingAssistantRoute
   ToolsRetentionDoctorRoute: typeof ToolsRetentionDoctorRoute
   ToolsScriptWriterRoute: typeof ToolsScriptWriterRoute
@@ -367,6 +472,7 @@ export interface RootRouteChildren {
   ToolsThumbnailDesignerRoute: typeof ToolsThumbnailDesignerRoute
   ToolsThumbnailTextRoute: typeof ToolsThumbnailTextRoute
   ToolsTrendAnglesRoute: typeof ToolsTrendAnglesRoute
+  ToolsTrendLifecycleCheckerRoute: typeof ToolsTrendLifecycleCheckerRoute
   ToolsVideoIdeasRoute: typeof ToolsVideoIdeasRoute
 }
 
@@ -391,6 +497,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/video-ideas'
       fullPath: '/tools/video-ideas'
       preLoaderRoute: typeof ToolsVideoIdeasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/trend-lifecycle-checker': {
+      id: '/tools/trend-lifecycle-checker'
+      path: '/tools/trend-lifecycle-checker'
+      fullPath: '/tools/trend-lifecycle-checker'
+      preLoaderRoute: typeof ToolsTrendLifecycleCheckerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/trend-angles': {
@@ -463,6 +576,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsRepurposingAssistantRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/rate-card-calculator': {
+      id: '/tools/rate-card-calculator'
+      path: '/tools/rate-card-calculator'
+      fullPath: '/tools/rate-card-calculator'
+      preLoaderRoute: typeof ToolsRateCardCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/pinned-comment': {
       id: '/tools/pinned-comment'
       path: '/tools/pinned-comment'
@@ -491,11 +611,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsNicheFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/media-kit-builder': {
+      id: '/tools/media-kit-builder'
+      path: '/tools/media-kit-builder'
+      fullPath: '/tools/media-kit-builder'
+      preLoaderRoute: typeof ToolsMediaKitBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/loop-cta-builder': {
       id: '/tools/loop-cta-builder'
       path: '/tools/loop-cta-builder'
       fullPath: '/tools/loop-cta-builder'
       preLoaderRoute: typeof ToolsLoopCtaBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/hook-rewriter': {
+      id: '/tools/hook-rewriter'
+      path: '/tools/hook-rewriter'
+      fullPath: '/tools/hook-rewriter'
+      preLoaderRoute: typeof ToolsHookRewriterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/hook-generator': {
@@ -526,6 +660,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsDuetStitchFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/cross-platform-adapter': {
+      id: '/tools/cross-platform-adapter'
+      path: '/tools/cross-platform-adapter'
+      fullPath: '/tools/cross-platform-adapter'
+      preLoaderRoute: typeof ToolsCrossPlatformAdapterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/content-calendar': {
       id: '/tools/content-calendar'
       path: '/tools/content-calendar'
@@ -538,6 +679,13 @@ declare module '@tanstack/react-router' {
       path: '/tools/comment-reply-generator'
       fullPath: '/tools/comment-reply-generator'
       preLoaderRoute: typeof ToolsCommentReplyGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/collab-finder': {
+      id: '/tools/collab-finder'
+      path: '/tools/collab-finder'
+      fullPath: '/tools/collab-finder'
+      preLoaderRoute: typeof ToolsCollabFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tools/caption-crafter': {
@@ -554,25 +702,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsBioOptimizerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/best-time-to-post': {
+      id: '/tools/best-time-to-post'
+      path: '/tools/best-time-to-post'
+      fullPath: '/tools/best-time-to-post'
+      preLoaderRoute: typeof ToolsBestTimeToPostRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tools/b-roll-suggester': {
+      id: '/tools/b-roll-suggester'
+      path: '/tools/b-roll-suggester'
+      fullPath: '/tools/b-roll-suggester'
+      preLoaderRoute: typeof ToolsBRollSuggesterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ToolsBRollSuggesterRoute: ToolsBRollSuggesterRoute,
+  ToolsBestTimeToPostRoute: ToolsBestTimeToPostRoute,
   ToolsBioOptimizerRoute: ToolsBioOptimizerRoute,
   ToolsCaptionCrafterRoute: ToolsCaptionCrafterRoute,
+  ToolsCollabFinderRoute: ToolsCollabFinderRoute,
   ToolsCommentReplyGeneratorRoute: ToolsCommentReplyGeneratorRoute,
   ToolsContentCalendarRoute: ToolsContentCalendarRoute,
+  ToolsCrossPlatformAdapterRoute: ToolsCrossPlatformAdapterRoute,
   ToolsDuetStitchFinderRoute: ToolsDuetStitchFinderRoute,
   ToolsHashtagPackRoute: ToolsHashtagPackRoute,
   ToolsHookAbTesterRoute: ToolsHookAbTesterRoute,
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
+  ToolsHookRewriterRoute: ToolsHookRewriterRoute,
   ToolsLoopCtaBuilderRoute: ToolsLoopCtaBuilderRoute,
+  ToolsMediaKitBuilderRoute: ToolsMediaKitBuilderRoute,
   ToolsNicheFinderRoute: ToolsNicheFinderRoute,
   ToolsPacingCheckerRoute: ToolsPacingCheckerRoute,
   ToolsPhotoCarouselRoute: ToolsPhotoCarouselRoute,
   ToolsPinnedCommentRoute: ToolsPinnedCommentRoute,
+  ToolsRateCardCalculatorRoute: ToolsRateCardCalculatorRoute,
   ToolsRepurposingAssistantRoute: ToolsRepurposingAssistantRoute,
   ToolsRetentionDoctorRoute: ToolsRetentionDoctorRoute,
   ToolsScriptWriterRoute: ToolsScriptWriterRoute,
@@ -583,6 +752,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsThumbnailDesignerRoute: ToolsThumbnailDesignerRoute,
   ToolsThumbnailTextRoute: ToolsThumbnailTextRoute,
   ToolsTrendAnglesRoute: ToolsTrendAnglesRoute,
+  ToolsTrendLifecycleCheckerRoute: ToolsTrendLifecycleCheckerRoute,
   ToolsVideoIdeasRoute: ToolsVideoIdeasRoute,
 }
 export const routeTree = rootRouteImport

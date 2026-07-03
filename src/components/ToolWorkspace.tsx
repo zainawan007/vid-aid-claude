@@ -36,6 +36,14 @@ import {
   generatePinnedComment,
   generateCarousel,
   generateSEODescription,
+  generateHookRewrite,
+  generateBestTime,
+  generateBRoll,
+  generateMediaKit,
+  generateRateCard,
+  generateTrendLifecycle,
+  generateCrossPlatform,
+  generateCollabIdeas,
 } from "@/lib/tiktok-tools.functions";
 import {
   Zap,
@@ -68,6 +76,14 @@ import {
   Pin,
   GalleryHorizontal,
   Search,
+  RefreshCw,
+  Clock,
+  Film,
+  IdCard,
+  DollarSign,
+  Activity,
+  Shuffle,
+  UserPlus,
 } from "lucide-react";
 import { toast } from "sonner";
 import { AdBanner } from "@/components/AdBanner";
@@ -97,6 +113,14 @@ export const TOOLS = [
   { id: "pinned", label: "Pinned Comment", icon: Pin, description: "Pump replies + algo", path: "/tools/pinned-comment" },
   { id: "carousel", label: "Photo Carousel", icon: GalleryHorizontal, description: "7-slide slideshow post", path: "/tools/photo-carousel" },
   { id: "seo", label: "SEO Description", icon: Search, description: "Searchable TikTok caption", path: "/tools/seo-description" },
+  { id: "hookRewrite", label: "Hook Rewriter", icon: RefreshCw, description: "Fix a weak hook 5 ways", path: "/tools/hook-rewriter" },
+  { id: "bestTime", label: "Best Time To Post", icon: Clock, description: "3 optimal posting windows", path: "/tools/best-time-to-post" },
+  { id: "bRoll", label: "B-Roll Suggester", icon: Film, description: "Line-by-line visuals", path: "/tools/b-roll-suggester" },
+  { id: "mediaKit", label: "Media Kit Builder", icon: IdCard, description: "One-page media kit", path: "/tools/media-kit-builder" },
+  { id: "rateCard", label: "Rate Card Calculator", icon: DollarSign, description: "Estimate your price", path: "/tools/rate-card-calculator" },
+  { id: "trendLifecycle", label: "Trend Lifecycle", icon: Activity, description: "Emerging or saturated?", path: "/tools/trend-lifecycle-checker" },
+  { id: "crossPlatform", label: "Cross-Platform Adapter", icon: Shuffle, description: "Reels, Shorts, X thread", path: "/tools/cross-platform-adapter" },
+  { id: "collab", label: "Collab Finder", icon: UserPlus, description: "5 creator archetypes", path: "/tools/collab-finder" },
 ] as const;
 
 const TONES = ["Hype", "Funny", "Educational", "Aesthetic", "Storytelling"] as const;
@@ -211,6 +235,30 @@ export function ToolWorkspace({ toolId, heading, subheading, intro }: ToolWorksp
           break;
         case "seo":
           res = await generateSEODescription({ data: { topic, tone, niche } });
+          break;
+        case "hookRewrite":
+          res = await generateHookRewrite({ data: { topic, tone, niche } });
+          break;
+        case "bestTime":
+          res = await generateBestTime({ data: { topic, tone, niche } });
+          break;
+        case "bRoll":
+          res = await generateBRoll({ data: { topic, tone, niche } });
+          break;
+        case "mediaKit":
+          res = await generateMediaKit({ data: { topic, tone, niche } });
+          break;
+        case "rateCard":
+          res = await generateRateCard({ data: { topic, tone, niche } });
+          break;
+        case "trendLifecycle":
+          res = await generateTrendLifecycle({ data: { topic, tone, niche } });
+          break;
+        case "crossPlatform":
+          res = await generateCrossPlatform({ data: { topic, tone, niche } });
+          break;
+        case "collab":
+          res = await generateCollabIdeas({ data: { topic, tone, niche } });
           break;
       }
       setResult(res!.result);
