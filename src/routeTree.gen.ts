@@ -26,6 +26,7 @@ import { Route as ToolsPinnedCommentRouteImport } from './routes/tools.pinned-co
 import { Route as ToolsPhotoCarouselRouteImport } from './routes/tools.photo-carousel'
 import { Route as ToolsPacingCheckerRouteImport } from './routes/tools.pacing-checker'
 import { Route as ToolsNicheFinderRouteImport } from './routes/tools.niche-finder'
+import { Route as ToolsMediaKitBuilderRouteImport } from './routes/tools.media-kit-builder'
 import { Route as ToolsLoopCtaBuilderRouteImport } from './routes/tools.loop-cta-builder'
 import { Route as ToolsHookRewriterRouteImport } from './routes/tools.hook-rewriter'
 import { Route as ToolsHookGeneratorRouteImport } from './routes/tools.hook-generator'
@@ -125,6 +126,11 @@ const ToolsNicheFinderRoute = ToolsNicheFinderRouteImport.update({
   path: '/tools/niche-finder',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ToolsMediaKitBuilderRoute = ToolsMediaKitBuilderRouteImport.update({
+  id: '/tools/media-kit-builder',
+  path: '/tools/media-kit-builder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ToolsLoopCtaBuilderRoute = ToolsLoopCtaBuilderRouteImport.update({
   id: '/tools/loop-cta-builder',
   path: '/tools/loop-cta-builder',
@@ -202,6 +208,7 @@ export interface FileRoutesByFullPath {
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/media-kit-builder': typeof ToolsMediaKitBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
@@ -233,6 +240,7 @@ export interface FileRoutesByTo {
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/media-kit-builder': typeof ToolsMediaKitBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
@@ -265,6 +273,7 @@ export interface FileRoutesById {
   '/tools/hook-generator': typeof ToolsHookGeneratorRoute
   '/tools/hook-rewriter': typeof ToolsHookRewriterRoute
   '/tools/loop-cta-builder': typeof ToolsLoopCtaBuilderRoute
+  '/tools/media-kit-builder': typeof ToolsMediaKitBuilderRoute
   '/tools/niche-finder': typeof ToolsNicheFinderRoute
   '/tools/pacing-checker': typeof ToolsPacingCheckerRoute
   '/tools/photo-carousel': typeof ToolsPhotoCarouselRoute
@@ -298,6 +307,7 @@ export interface FileRouteTypes {
     | '/tools/hook-generator'
     | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
+    | '/tools/media-kit-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
@@ -329,6 +339,7 @@ export interface FileRouteTypes {
     | '/tools/hook-generator'
     | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
+    | '/tools/media-kit-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
@@ -360,6 +371,7 @@ export interface FileRouteTypes {
     | '/tools/hook-generator'
     | '/tools/hook-rewriter'
     | '/tools/loop-cta-builder'
+    | '/tools/media-kit-builder'
     | '/tools/niche-finder'
     | '/tools/pacing-checker'
     | '/tools/photo-carousel'
@@ -392,6 +404,7 @@ export interface RootRouteChildren {
   ToolsHookGeneratorRoute: typeof ToolsHookGeneratorRoute
   ToolsHookRewriterRoute: typeof ToolsHookRewriterRoute
   ToolsLoopCtaBuilderRoute: typeof ToolsLoopCtaBuilderRoute
+  ToolsMediaKitBuilderRoute: typeof ToolsMediaKitBuilderRoute
   ToolsNicheFinderRoute: typeof ToolsNicheFinderRoute
   ToolsPacingCheckerRoute: typeof ToolsPacingCheckerRoute
   ToolsPhotoCarouselRoute: typeof ToolsPhotoCarouselRoute
@@ -530,6 +543,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsNicheFinderRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tools/media-kit-builder': {
+      id: '/tools/media-kit-builder'
+      path: '/tools/media-kit-builder'
+      fullPath: '/tools/media-kit-builder'
+      preLoaderRoute: typeof ToolsMediaKitBuilderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tools/loop-cta-builder': {
       id: '/tools/loop-cta-builder'
       path: '/tools/loop-cta-builder'
@@ -632,6 +652,7 @@ const rootRouteChildren: RootRouteChildren = {
   ToolsHookGeneratorRoute: ToolsHookGeneratorRoute,
   ToolsHookRewriterRoute: ToolsHookRewriterRoute,
   ToolsLoopCtaBuilderRoute: ToolsLoopCtaBuilderRoute,
+  ToolsMediaKitBuilderRoute: ToolsMediaKitBuilderRoute,
   ToolsNicheFinderRoute: ToolsNicheFinderRoute,
   ToolsPacingCheckerRoute: ToolsPacingCheckerRoute,
   ToolsPhotoCarouselRoute: ToolsPhotoCarouselRoute,
